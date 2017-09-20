@@ -49,6 +49,7 @@ gem 'rails_admin_aasm'
 gem 'simple_form'
 
 gem 'figaro'
+gem 'ffaker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -56,7 +57,6 @@ gem 'figaro'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'ffaker'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'capybara'#, require: 'capybara/rspec'
