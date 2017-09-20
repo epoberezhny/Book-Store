@@ -1,0 +1,99 @@
+ru:
+  shared:
+    order_summary: Итог
+    coupon: 'Купон:'
+    delivery: 'Доставка:'
+    total: 'Сумма:'
+    book: Книга
+    phone: Телефон %{phone}
+  application:
+    shop: Магазин
+    home: Домой
+    my_account: Мой аккаунт
+    orders: Заказы
+    settings: Настройки
+    log_out: Выйти
+    log_in: Войти
+    sign_up: Зарегистрироваться
+  home:
+    best_sellers: Бестселлеры
+    buy_now: Купить сейчас
+    get_started: Вперёд!
+    welcome: Добро пожаловать в наш восхитительный Bookstore!
+    text: Каждый месяц мы читаем сотни новых книг и выбираем четыре лучших, чтобы поделиться ими с нашими посетителями.
+  books:
+    catalog: Каталог
+    filter_by_category: Отфильтровать по категрии
+    sort_by: Сортировать
+    view_more: Показать больше
+    loading: Загрузка...
+  book:
+    back: Назад к результатам
+    add_to_cart: Добавить в корзину
+    description: Описание
+    year: Год публикации
+    dimensions: Размеры
+    materials: Материалы
+    write_a_review: Оставить отзыв
+    reviews: Отзывы (%{count})
+    post: Отправить
+    read_more: Больше
+    out_of_stock: Нет на складе
+  cart:
+    title: Корзина
+    apply_coupon: Применить купон
+    update_cart: Обновить корзину
+    checkout: Оформить заказ
+    empty: Ваша корзина пуста :(
+  checkout:
+    checkout: Оформление заказа
+    address: Адрес
+    delivery: Доставка
+    payment: Оплата
+    confirm: Подтверждение
+    complete: Завершение
+    use_billing_address: Использовать адрес оплаты
+    all_required: все поля обязательны
+    save_and_continue: Сохранить и продолжить
+    delivery: Доставка
+    days: Период доставки
+    method: Метод
+    credit_card: Кредитная карта
+    hint: Код безопасности из трёх цифр. Обычно, находится на обратной стороне карты. Карты American Express имеют код из четырёх цифр на лицевой стороне.
+    edit: редактировать
+    place_order: Разместить заказ
+    thank_you: Благодарим за Ваш заказ!
+    send_confirmation: Подтверждение отправлено на %{email}
+    order: 'Заказ #%{number}'
+    back_to_store: Назад к покупкам
+  orders:
+    my_orders: Мои заказы
+    filter_by: Фильтр
+    number: Номер
+    completed_at: Завершено
+    status: Статус
+    total: Сумма
+    no_orders: Нет заказов
+  settings:
+    settings: Настройки
+    address: Адреса
+    privacy: Пользовательские данные
+    save: Сохранить
+    email: Почта
+    password: Пароль
+    remove: Удаление учётной записи
+    understand: Я понимаю, что все данные будут потеряны
+    remove_btn: Удалить учётную запись
+  users:
+    have_account: У Вас уже есть аккаунт?
+    no_account: У Вас ещё нет аккаунта?
+    no_confirmation: Не получили инструкции для подтверждения?
+    or: или
+    forgot_password: Забыли пароль?
+    remember_me: Запомнить меня
+    returning_customer: Зарегистрированный покупатель
+    with_password: Войти с помощью пароля
+    new_customer: Новый покупатель
+    quick: Быстрая регистрация
+    later: У Вас будет возможность изменить пароль в будущем
+    continue: Продолжить оформление заказа

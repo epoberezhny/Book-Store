@@ -1,0 +1,25 @@
+%h3.general-subtitle= t('checkout.delivery')
+
+- methods = @order.shipping_address.country.shipping_methods
+
+= form_for @order, url: wizard_path, method: :patch do |f|
+  .visible-xs
+    = render partial: 'shipping_method_xs', collection: methods, as: :method
+
+  .hidden-xs.mb-res-50
+    %table.table.table-hover
+      %thead
+        %tr
+          %th.col-method
+            %span.in-grey-600.ml-40= t('checkout.method')
+          %th
+            %span.in-grey-600= t('checkout.days')
+          %th
+            %span.in-grey-600= t('price')
+      %tbody
+        = render partial: 'shipping_method', collection: methods, as: :method
+
+  = render 'shared/summary', class: 'general-text-align', order: @order
+
+  .text-center
+    = f.submit t('checkout.save_and_continue'), class: 'btn btn-default mb-20'

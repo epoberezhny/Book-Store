@@ -1,0 +1,5 @@
+- content_for :active, t(active_filter, scope: 'orders_filters'), flush: true
+
+- FilterOrders::ALLOWED_STATUSES.each do |status|
+  %li
+    = link_to t(status, scope: 'orders_filters'), users_orders_path(status: status)

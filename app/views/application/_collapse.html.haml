@@ -1,0 +1,5 @@
+%li
+  %a{ type: 'button', 'data-toggle' => 'collapse', href: "##{id}-menu", 'aria-expanded' => 'false', 'aria-controls' => 'account-menu' }
+    = content_for :title
+  %ul.collapse.list-unstyled.pl-30.mb-10{'aria-expanded' => 'false', id: "#{id}-menu" }
+    = yield 

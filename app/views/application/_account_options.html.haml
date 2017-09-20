@@ -1,0 +1,10 @@
+- content_for :title, t('application.my_account'), flush: true
+
+- content_for :additional_options, flush: true do
+  %li.divider{ role: 'separator' }
+  = content_for :log_out_link
+
+%li
+  = link_to t('application.orders'), users_orders_path, class: local_assigns[:link_class]
+%li
+  = link_to t('application.settings'), edit_user_registration_path, class: local_assigns[:link_class]

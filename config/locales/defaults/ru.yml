@@ -1,0 +1,25 @@
+ru:
+  product: Товар
+  price: Цена
+  quantity: Количество
+  subtotal: Цена товаров
+  billing_address: Адрес оплаты
+  shipping_address: Адрес доставки
+  shipments: Доставка
+  payment_info: Информация об оплате
+  range: от %{min} до %{max} дней
+  sorting_types:
+    newest: 'Сначала новые'
+    popular: 'Сначала популярные'
+    price: 'Цена: по возрастанию'
+    price_desc: 'Цена: по убыванию'
+    title: 'Название: A-Z'
+    title_desc: 'Название: Z-A'
+  orders_filters:
+    in_queue: В обработке
+    in_delivery: В пути
+    delivered: Доставленные
+    canceled: Отменённые
+  h: В
+  w: Ш
+  d: Г

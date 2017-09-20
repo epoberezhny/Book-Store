@@ -1,0 +1,16 @@
+= form_for current_order, url: 'order', method: :patch, html: { id: :big_form } do |f|
+  .hidden-xs
+    %table.table.table-hover
+      %tr.no-hover
+        %th.col-pic.pl-0
+          %span.in-grey-600= t('product')
+        %th.col-title
+        %th.col-price
+          %span.in-grey-600= t('price')
+        %th.col-quantity
+          %span.in-grey-600= t('quantity')
+        %th.col-total
+          %span.in-grey-600= t('subtotal')
+        %th.col-close
+      = f.fields_for :items, @items do |items_f|
+        = render 'item', item: items_f.object, form: items_f

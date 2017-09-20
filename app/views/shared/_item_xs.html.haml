@@ -1,0 +1,21 @@
+.general-cart-item.divider-lg{ class: ('mb-55' if item_iteration.last?) }
+  .general-img-wrap-table
+    = image_tag item.book.cover.thumb.url, class: 'cart-img-shadow'
+  %p.title= item.book.title
+  %p.in-grey-600.fw-300= item.book.description
+  %table.table
+    %tr
+      %td
+        %span.in-grey-600= t('price')
+      %td
+        %span.font-16.in-gold-500= item.book.price.to_s(:currency)
+    %tr
+      %td.vertical-middle
+        %span.in-grey-600= t('quantity')
+      %td
+        %span= item.quantity
+    %tr
+      %td
+        %span.in-grey-600= t('subtotal')
+      %td
+        %span.font-16.in-gold-500= item.total.to_s(:currency)

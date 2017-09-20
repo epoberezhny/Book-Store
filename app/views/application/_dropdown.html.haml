@@ -1,0 +1,6 @@
+%li.dropdown
+  %a.dropdown-toggle{ href: '#', 'data-toggle' => 'dropdown', role: 'button', 'aria-haspopup' => 'true', 'aria-expanded' => 'false' }
+    = content_for :title
+  %ul.dropdown-menu
+    = yield
+    = content_for :additional_options

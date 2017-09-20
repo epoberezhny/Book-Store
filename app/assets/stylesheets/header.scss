@@ -1,0 +1,9 @@
+.language-link {
+  display: inline-block !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  &:first-child {
+    padding-left: 15px !important;
+  }
+}

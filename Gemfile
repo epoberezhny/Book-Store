@@ -59,7 +59,10 @@ group :development, :test do
   gem 'ffaker'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
-  gem 'capybara'
+  gem 'capybara'#, require: 'capybara/rspec'
+  gem 'poltergeist'#, require: 'capybara/poltergeist'
+  gem 'spring-commands-rspec'
+  gem 'wisper-rspec', require: false
 end
 
 group :development do

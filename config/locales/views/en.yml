@@ -1,0 +1,99 @@
+en:
+  shared:
+    order_summary: Order Summary
+    coupon: 'Coupon:'
+    delivery: 'Delivery:'
+    total: 'Order Total:'
+    book: Book
+    phone: Phone %{phone}
+  application:
+    shop: Shop
+    home: Home
+    my_account: My account
+    orders: Orders
+    settings: Settings
+    log_out: Log out
+    log_in: Log in
+    sign_up: Sign up
+  home:
+    best_sellers: Best Sellers
+    buy_now: Buy now
+    get_started: Get Started!
+    welcome: Welcome to our amazing Bookstore!
+    text: We pore through hundreds of new books each month and select the four best we can find to share with our members.
+  books:
+    catalog: Catalog
+    filter_by_category: Filter by category
+    sort_by: Sort by
+    view_more: View more
+    loading: Loading...
+  book:
+    back: Back to results
+    add_to_cart: Add to Cart
+    description: Description
+    year: Year of publication
+    dimensions: Dimensions
+    materials: Materials
+    write_a_review: Write a review
+    reviews: Reviews (%{count})
+    post: Post
+    read_more: Read More
+    out_of_stock: Out of Stock
+  cart:
+    title: Cart
+    apply_coupon: Apply Coupon
+    update_cart: Update Cart
+    checkout: Checkout
+    empty: Your cart is empty :(
+  checkout:
+    checkout: Checkout
+    address: Address
+    delivery: Delivery
+    payment: Payment
+    confirm: Confirm
+    complete: Complete
+    use_billing_address: Use Billing Address
+    all_required: all fields are required
+    save_and_continue: Save and Continue
+    delivery: Delivery
+    days: Days
+    method: Method
+    credit_card: Credit Card
+    hint: 3-digit security code, usually found on the back of your card. American Express cards has 4-digit code, located on the front.
+    edit: edit
+    place_order: Place Order
+    thank_you: Thank You for your Order!
+    send_confirmation: An order confirmation has been has been sent to %{email}
+    order: 'Order #%{number}'
+    back_to_store: Back to Store
+  orders:
+    my_orders: My Orders
+    filter_by: Filter
+    number: Number
+    completed_at: Completed at
+    status: Status
+    total: Total
+    no_orders: No orders
+  settings:
+    settings: Settings
+    address: Address
+    privacy: Privacy
+    save: Save
+    email: Email
+    password: Password
+    remove: Remove Account
+    understand: I understand that all data will be lost
+    remove_btn: Please Remove My Account
+  users:
+    have_account: Have an Account?
+    no_account: Don’t have an Account?
+    no_confirmation: Didn't receive confirmation instructions?
+    or: or
+    forgot_password: Forgot your password?
+    remember_me: Remember me
+    returning_customer: Returning Customer
+    with_password: Log in with password
+    new_customer: New Customer
+    quick: Quick Register
+    later: You'll be able to change password later
+    continue: Continue to checkout

@@ -1,0 +1,10 @@
+- if flash.any?
+  .container
+    - if notice
+      .alert.alert-info.alert-dismissable.fade.in
+        %a.close{ 'aria-label' => 'close', 'data-dismiss' => 'alert', href: '#' } &times;
+        = notice
+    - if alert
+      .alert.alert-danger.alert-dismissable.fade.in
+        %a.close{ 'aria-label' => 'close', 'data-dismiss' => 'alert', href: '#' } &times;
+        = alert

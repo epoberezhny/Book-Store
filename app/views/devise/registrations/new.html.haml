@@ -1,0 +1,7 @@
+%main.container.general-main-wrap
+  .text-center
+    %h3.general-login-title= t('application.sign_up')
+    = render 'devise/shared/oauth_links'
+    %p.general-login-text= t('users.or')
+  = render 'form'
+  = render "devise/shared/links"

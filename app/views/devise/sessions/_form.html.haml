@@ -1,0 +1,21 @@
+= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'general-form' }, wrapper: :general_form do |f|
+
+  = f.input :email, autofocus: true
+
+  = f.input :password do
+
+    = f.input_field :password, autocomplete: 'off'
+
+    - if devise_mapping.recoverable?
+      = link_to t('users.forgot_password'), new_password_path(resource_name), class: 'help-block in-gold-500'
+
+  - if devise_mapping.rememberable?
+    .form-group.checkbox.text-center.mb-30
+      = f.label :remember_me, class: 'checkbox-label' do
+        = f.check_box :remember_me, class: 'checkbox-input', hidden: true
+        %span.checkbox-icon
+          %i.fa.fa-check
+        %span.checkbox-text= t('users.remember_me')
+
+  .text-center
+    = f.button :submit, t('application.log_in'), class: 'mb-20'

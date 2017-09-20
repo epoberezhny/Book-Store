@@ -1,0 +1,23 @@
+%h3.general-subtitle= t('checkout.credit_card')
+
+= simple_form_for @order, url: wizard_path, method: :patch, html: { class: 'max-600 mb-80' } do |f|
+  = f.simple_fields_for :credit_card, credit_card_placeholder do |cc_form|
+
+    = cc_form.input :number
+
+    .row
+      .col-sm-6
+        = cc_form.input :name_on_card
+
+      .col-sm-3
+        = cc_form.input :month_year
+      
+      .col-sm-3
+        = cc_form.input :cvv, label: 'CVV', wrapper_html: { class: 'relative' } do
+          = cc_form.text_field :cvv, class: 'form-control', placeholder: 'CVV'
+          %i.fa.fa-question-circle.general-form-help{ data: { toggle: :tooltip, placement: :left, container: :body, title: t('checkout.hint') } }
+  
+  = render 'shared/summary', class: 'general-text-align', order: @order
+  
+  .text-center
+    = f.submit t('checkout.save_and_continue'), class: 'btn btn-default mb-80'

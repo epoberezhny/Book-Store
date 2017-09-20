@@ -1,0 +1,5 @@
+- if form.object.additional_images
+  - form.object.additional_images.each do |image|
+    = image_tag image.url
+= form.file_field :additional_images, multiple: true
+= form.hidden_field :additional_images_cache

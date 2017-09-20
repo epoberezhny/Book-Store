@@ -1,0 +1,25 @@
+en:
+  product: Product
+  price: Price
+  quantity: Quantity
+  subtotal: Subtotal
+  billing_address: Billing Address
+  shipping_address: Shipping Address
+  shipments: Shipments
+  payment_info: Payment Information
+  range: '%{min} to %{max} days'
+  sorting_types:
+    newest: 'Newest first'
+    popular: 'Popular first'
+    price: 'Price: Low to high'
+    price_desc: 'Price: High to low'
+    title: 'Title: A-Z'
+    title_desc: 'Title: Z-A'
+  orders_filters:
+    in_queue: Waiting for processing
+    in_delivery: In delivery
+    delivered: Delivered
+    canceled: Canceled
+  h: H
+  w: W
+  d: D

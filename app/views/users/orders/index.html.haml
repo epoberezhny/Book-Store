@@ -1,0 +1,14 @@
+%main.container.general-main-wrap
+  %h1.mt-0.mb-25= t('orders.my_orders')
+  %p.lead.small.mb-10.visible-xs= t('orders.filter_by')
+  .dropdowns.dropdown.general-order-dropdown
+    = render partial: 'status_list', layout: 'shared/dropdown'
+
+  - if @orders.present?
+    .visible-xs
+      = render partial: 'order_xs', collection: @orders, as: :order
+
+    = render 'hidden_xs'
+    
+  - else
+    .text-center= t('orders.no_orders')

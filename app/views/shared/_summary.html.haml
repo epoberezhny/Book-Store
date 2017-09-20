@@ -1,0 +1,29 @@
+%div{ class: local_assigns[:class] }
+  %p.in-gold-500.font-18= t('shared.order_summary')
+  %table.general-summary-table{ class: local_assigns[:table_class] }
+    %tr
+      %td
+        %p.font-16= "#{ t('subtotal') }:"
+      %td
+        %p.font-16= order.items_subtotal.to_s(:currency)
+
+    - unless order.coupon_discount.zero?
+      %tr
+        %td
+          %p.font-16= t('shared.coupon')
+        %td
+          %p.font-16= (-order.coupon_discount).to_s(:currency)
+
+    - if !order.delivery_price.zero? || try(:step) == :delivery
+      %tr
+        %td
+          %p.font-16= t('shared.delivery')
+        %td
+          %p#delivery.font-16= order.delivery_price.to_s(:currency)
+
+    %tr
+      %td
+        %strong.font-18= t('shared.total')
+      %td
+        %strong#total.font-18{ data: { total: (order.total - order.delivery_price) } }= order.total.to_s(:currency)
+
