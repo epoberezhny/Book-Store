@@ -1,6 +1,6 @@
 %h3.general-subtitle= t('checkout.delivery')
 
-- methods = @order.shipping_address.country.shipping_methods
+- methods = @order.shipping_address.country.shipping_methods.decorate
 
 = form_for @order, url: wizard_path, method: :patch do |f|
   .visible-xs

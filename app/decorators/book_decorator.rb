@@ -1,7 +1,10 @@
-class BookDecorator < Draper::Decorator
-  delegate_all
+class BookDecorator < ApplicationDecorator
+  extend PriceFormatter
 
   decorates_association :authors
+  decorates_association :reviews
+
+  format_price :price
 
   def joined_authors
     authors.map(&:full_name).join(', ')

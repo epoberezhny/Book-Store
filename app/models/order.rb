@@ -54,7 +54,6 @@ class Order < ApplicationRecord
 
   def merge!(other)
     other.items.each { |item| add_item(item) }
-    self.coupon = nil
     save
     other.items.reload
     other.destroy
@@ -95,6 +94,6 @@ class Order < ApplicationRecord
   end
 
   def calc_total
-    self.total  = items_subtotal - coupon_discount + delivery_price
+    self.total = items_subtotal - coupon_discount + delivery_price
   end
 end

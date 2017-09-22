@@ -7,7 +7,7 @@
     
     .ml-70
       %div
-        .general-message-date.hidden-xs= review.created_at.strftime('%d/%m/%y')
+        .general-message-date.hidden-xs= review.formatted_date
         .max-240
           - if review.verified?
             .general-message-verified Verified Reviewer

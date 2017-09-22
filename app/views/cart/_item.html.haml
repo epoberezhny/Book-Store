@@ -7,7 +7,7 @@
     = link_to item.book do
       %p.title= item.book.title
   %td
-    %span.font-16.in-gold-500= item.book.price.to_s(:currency)
+    %span.font-16.in-gold-500= item.book.formatted_price
   %td
     .input-group{ data: { role: 'counter', default: item.quantity, min: '1', max: item.book.quantity } }
       %a.input-link{ href: '#', 'data-value' => 'prev' }
@@ -16,7 +16,7 @@
       %a.input-link{ href: '#', 'data-value' => 'next' }
         %i.fa.fa-plus.line-height-40
   %td
-    %span.font-16.in-gold-500= item.total.to_s(:currency)
+    %span.font-16.in-gold-500= item.formatted_total
   %td
     = link_to order_item_path(item), method: :delete, class: 'close general-cart-close', 'aria-label' => 'Close' do
       %span{ 'aria-hidden' => 'true' } &times;

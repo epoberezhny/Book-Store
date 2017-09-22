@@ -1,5 +1,5 @@
 %main.container.general-main-wrap
-  %h1.general-title-margin= @order.id
+  %h1.general-title-margin= @order.number
   .row.mb-20
     - [:shipping_address, :billing_address].each do |type|
       .col-sm-3
@@ -12,15 +12,15 @@
       %p.general-address
         = delivery.name
         %br
-        = t('range', min: delivery.min_days, max: delivery.max_days)
+        = delivery.days
         %br
-        = delivery.price.to_s(:currency)
+        = delivery.formatted_price
 
     .col-sm-3
       - payment = @order.credit_card
       %h3.general-subtitle.mt-0= t('payment_info')
       %p.general-address
-        = payment.number.gsub(/\d{12}/, '*' * 12)
+        = payment.formatted_number
         %br
         = payment.month_year
 

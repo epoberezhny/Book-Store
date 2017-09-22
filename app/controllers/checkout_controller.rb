@@ -13,16 +13,22 @@ class CheckoutController < ApplicationController
   end
 
   def show
+    @order = @order.decorate
     render_wizard
   end
 
   def update
-    Checkouter.call(current_order, params, step) do
-      on(:ok) { |order| render_wizard order }
+    Checkouter.call(@order, params, step) do
+      on(:ok) do |order|
+        self.order = order.decorate
+        render_wizard order
+      end
     end
   end
 
   private
+
+  attr_writer :order
 
   def quickly_authenticate_user!
     redirect_to new_user_registration_path(type: 'quick') unless user_signed_in?

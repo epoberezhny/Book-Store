@@ -5,25 +5,25 @@
       %td
         %p.font-16= "#{ t('subtotal') }:"
       %td
-        %p.font-16= order.items_subtotal.to_s(:currency)
+        %p.font-16= order.formatted_items_subtotal
 
     - unless order.coupon_discount.zero?
       %tr
         %td
           %p.font-16= t('shared.coupon')
         %td
-          %p.font-16= (-order.coupon_discount).to_s(:currency)
+          %p.font-16= order.formatted_coupon_discount
 
     - if !order.delivery_price.zero? || try(:step) == :delivery
       %tr
         %td
           %p.font-16= t('shared.delivery')
         %td
-          %p#delivery.font-16= order.delivery_price.to_s(:currency)
+          %p#delivery.font-16= order.formatted_delivery_price
 
     %tr
       %td
         %strong.font-18= t('shared.total')
       %td
-        %strong#total.font-18{ data: { total: (order.total - order.delivery_price) } }= order.total.to_s(:currency)
+        %strong#total.font-18{ data: { total: (order.total - order.delivery_price) } }= order.formatted_total
 

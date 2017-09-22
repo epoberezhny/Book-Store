@@ -7,9 +7,9 @@ class StepAccess < Rectify::Command
   end
 
   def call
-    return broadcast(:empty_cart) if empty_cart?
-
-    if access_allowed?
+    if empty_cart?
+      broadcast(:empty_cart)
+    elsif access_allowed?
       broadcast(:allowed)
     else
       broadcast(:denied, last_allowed)

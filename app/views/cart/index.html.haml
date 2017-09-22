@@ -1,11 +1,11 @@
 %main.container.general-main-wrap
   %h1.general-title-margin= t('cart.title')
-  - if current_order.items.blank?
+  - if @order.items.blank?
     .text-center= t('cart.empty')
       
   - else
     .visible-xs
-      = form_for current_order, url: 'order', method: :patch, html: { id: :small_form } do |f|
+      = form_for @order, url: 'order', method: :patch, html: { id: :small_form } do |f|
         = f.fields_for :items, @items do |items_f|
           = render 'item_xs', item: items_f.object, form: items_f
 

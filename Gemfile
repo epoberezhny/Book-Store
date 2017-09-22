@@ -48,7 +48,6 @@ gem 'rails_admin_aasm'
 
 gem 'simple_form'
 
-gem 'figaro'
 gem 'ffaker'
 
 # Use Capistrano for deployment
@@ -75,6 +74,7 @@ group :development do
 
   gem 'ruby-debug-ide'
   gem 'debase'
+  gem 'figaro'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
