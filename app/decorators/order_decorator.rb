@@ -20,6 +20,6 @@ class OrderDecorator < ApplicationDecorator
   end
 
   def number
-    'R' + '0' * (8-id.digits.size) + id.to_s
+    'R' + '0' * (8 - id.digits.size) + id.to_s
   end
 end
