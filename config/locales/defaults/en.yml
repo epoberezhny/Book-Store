@@ -23,3 +23,6 @@ en:
   h: H
   w: W
   d: D
+  validators:
+    contain: must contain at least 1 %{type}
+    spaces: mustn't contain spaces
