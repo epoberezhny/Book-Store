@@ -19,7 +19,7 @@ class BookDecorator < ApplicationDecorator
     height = I18n.t(:h)
     width  = I18n.t(:w)
     depth  = I18n.t(:d)
-    "#{height}: #{h} x #{width}: #{w} x #{depth}: #{d}"
+    %Q(#{height}: #{h}" x #{width}: #{w}" x #{depth}: #{d}")
   end
 
   def btn_class
