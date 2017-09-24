@@ -4,7 +4,7 @@ class BestSellers < Rectify::Query
   end
 
   private
-  
+
   def best_sellers_ids
     Category.all.map do |category|
       category.books.order(order_items_count: :desc).limit(1).ids

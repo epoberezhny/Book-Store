@@ -4,7 +4,7 @@ class Coupon < ApplicationRecord
   validates :code,
     uniqueness: true,
     length:     { maximum: 20 },
-    format:     { with: /\A[\w]+\z/}
+    format:     { with: /\A[\w]+\z/ }
   validates :discount,
     numericality: { only_integer: true, greater_than: 0, less_than: 100 }
 

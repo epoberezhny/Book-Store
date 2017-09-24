@@ -1,10 +1,10 @@
 class SortingQuery < Rectify::Query
-  I18N_SCOPE = :sorting_types.freeze
-  
+  I18N_SCOPE = :sorting_types
+
   def self.type(name, **opts)
     @default_sorting = name if opts[:default] == true
     title, order = opts.values_at(:title, :order)
-    title = title || ->{ I18n.t(name, scope: I18N_SCOPE, default: name.to_s) }
+    title ||= -> { I18n.t(name, scope: I18N_SCOPE, default: name.to_s) }
     sorting_types[name] = { title: title, order: order }
   end
 
