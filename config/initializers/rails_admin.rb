@@ -70,24 +70,25 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Order' do
+    states = %i[in_queue in_delivery delivered canceled]
+
     list do
       fields :id, :created_at
-      field :state, :state
-      scopes [:in_progress, :delivered, :canceled]
+      field :state
+      scopes states
     end
 
     show do
-      fields :user
+      field :user
     end
 
     edit do
-      field :state
+      field :state, :enum do
+        enum do
+          states
+        end
+      end
     end
-
-    # state({
-    #   events: { approve: 'btn-success', reject: 'btn-danger' },
-    #   states: { approved: 'label-success', rejected: 'label-danger' }
-    # })
   end
 
   config.model 'Book' do
