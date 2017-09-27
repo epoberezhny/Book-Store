@@ -8,11 +8,11 @@ class CurrentOrder < SimpleDelegator
   def order_from_user
     return unless user_signed_in?
     user_order = current_user.orders.in_progress.last || current_user.orders.new
-    if order_from_cookie
-      user_order.merge!(order_from_cookie)
+    user_order.tap do |order|
+      next unless order_from_cookie
+      order.merge!(order_from_cookie)
       cookies.delete(:cart_id)
     end
-    user_order
   end
 
   def order_from_cookie
