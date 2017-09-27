@@ -19,16 +19,3 @@ FactoryGirl.define do
     end
   end
 end
-
-# title        { FFaker::Book.title }
-# price        { rand(10.00..20.00) }
-# quantity     { rand(0..10) }
-# description  { FFaker::Book.description }
-# year         { rand(1980..2017) }
-# category     'categories.sample'
-# authors      'pushkin'
-# materials    'paper'
-# dimensions   do { 'h' => rand(1.0..10.0).round(1),
-#                   'w' => rand(1.0..10.0).round(1),
-#                   'd' => rand(1.0..10.0).round(1) }
-# end

@@ -4,9 +4,5 @@ FactoryGirl.define do
     password 'A1qwerty'
     # password_confirmation 'A1qwerty'
     confirmed_at Time.current
-
-    # factory :admin do
-    #   admin true
-    # end
   end
 end
