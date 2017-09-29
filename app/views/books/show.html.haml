@@ -65,7 +65,7 @@
           %p.pull-left= t('book.materials')
           %p.lead.small.pull-right= @book.joined_materials
   .mb-80
-    - if can? :write, :review
+    - if can? :create, :review
       = render 'books/review_form'
 
     %h3.in-gold-500.mb-25= t('book.reviews', count: @book.reviews.size)

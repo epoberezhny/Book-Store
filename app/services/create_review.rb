@@ -5,7 +5,7 @@ class CreateReview < Rectify::Command
   end
 
   def call
-    authorize! :write, :review
+    authorize! :create, :review
 
     review = @user.reviews.new(review_params)
     review.book = book
