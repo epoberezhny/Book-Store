@@ -1,4 +1,6 @@
 class Users::OrdersController < ApplicationController
+  before_action :authenticate_user!
+  
   load_resource only: [:index]
 
   def index
