@@ -50,4 +50,4 @@ Country.find_or_create_by!(name: 'USA') do |country|
 end
 
 Coupon.create!(code: 'awesome_bookstore', expire: 6.months.after, discount: 25)
-Coupon.create!(code: 'coupn', expire: 6.months.before, discount: 25)
+Coupon.create!(code: 'coupon', expire: 6.months.before, discount: 25)
