@@ -1,5 +1,5 @@
 class CreditCardDecorator < ApplicationDecorator
   def formatted_number
-    number.gsub(/\d{12}/, '*' * 12)
+    ('*' * 12) << number.slice(13, 16)
   end
 end
