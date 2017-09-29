@@ -5,10 +5,6 @@ RSpec.describe 'AddOrderItem', type: :service do
   let(:order)  { build(:order) }
 
   before do
-    class << service
-      def authorize!(*); end
-    end
-
     allow(params).to receive_message_chain(:require, :permit)
     allow(order).to receive(:add_item).with(instance_of(OrderItem))
   end
@@ -34,7 +30,6 @@ RSpec.describe 'AddOrderItem', type: :service do
       it 'broadcats :ok with order' do
         allow(order).to receive(:save).and_return(true)
         expect(order).to receive(:add_item).with(instance_of(OrderItem))
-        expect(service).to receive(:authorize!).with(:create, instance_of(OrderItem))
 
         expect { service.call }.to broadcast(:ok, order)
       end
@@ -44,7 +39,6 @@ RSpec.describe 'AddOrderItem', type: :service do
       it 'broadcats :ok with order' do
         allow(order).to receive(:save).and_return(false)
         expect(order).to receive(:add_item).with(instance_of(OrderItem))
-        expect(service).to receive(:authorize!).with(:create, instance_of(OrderItem))
         
         expect { service.call }.to broadcast(:error)
       end

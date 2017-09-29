@@ -20,7 +20,7 @@ RSpec.describe 'CreateReview', type: :service do
   describe '#call' do
     it 'calls authorize!' do
       allow(review).to receive(:save) { true }
-      expect(service).to receive(:authorize!).with(:write, :review)
+      expect(service).to receive(:authorize!).with(:create, :review)
 
       service.call
     end
