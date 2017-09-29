@@ -36,7 +36,7 @@ class User < ApplicationRecord
   end
 
   def skip_password_validations?
-    @skip_validations
+    !!@skip_validations
   end
 
   private
