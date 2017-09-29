@@ -1,4 +1,5 @@
 en:
+  denied: Access denied!
   order_items:
     create:
       added: The product was successfully added to cart.

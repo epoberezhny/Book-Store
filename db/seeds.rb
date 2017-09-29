@@ -1,14 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
-User.create!(
-  first_name: 'Евгений',
-  last_name: 'Побережный',
-  email: 'mail@mail.com',
-  password: 'A1qwerty',
-  confirmed_at: Time.current
-)
-
 ['Mobile development', 'Photo', 'Web design', 'Web development'].reverse_each do |name|
   Category.find_or_create_by!(name: name)
 end
@@ -58,4 +50,4 @@ Country.find_or_create_by!(name: 'USA') do |country|
 end
 
 Coupon.create!(code: 'awesome_bookstore', expire: 6.months.after, discount: 25)
-Coupon.create!(code: 'coupn', expire: 6.months.before, discount: 25)
+Coupon.create!(code: 'coupon', expire: 6.months.before, discount: 25)

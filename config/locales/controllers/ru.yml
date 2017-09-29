@@ -1,4 +1,5 @@
 ru:
+  denied: Доступ запрещён!
   order_items:
     create:
       added: Товар успешно добавлен в корзину.

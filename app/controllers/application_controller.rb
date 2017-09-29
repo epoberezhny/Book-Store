@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :categories, :current_order
 
+  rescue_from CanCan::AccessDenied do
+    redirect_back(fallback_location: root_path, alert: t('denied'))
+  end
+
   private
 
   def categories
@@ -16,7 +20,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = params[:locale]
+  rescue I18n::InvalidLocale
+    I18n.locale = I18n.default_locale
   end
 
   def default_url_options
