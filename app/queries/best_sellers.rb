@@ -1,6 +1,6 @@
 class BestSellers < Rectify::Query
   def query
-    Book.includes(:authors).find(best_sellers_ids)
+    Book.includes(:authors).where(id: best_sellers_ids)
   end
 
   private
