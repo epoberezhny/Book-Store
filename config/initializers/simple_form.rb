@@ -1,36 +1,32 @@
 SimpleForm.setup do |config|
+  config.label_text               = ->(label, required, explicit_label) { label }
+  config.browser_validations      = false
+  config.error_notification_class = 'alert alert-danger'
+  config.button_class             = 'btn btn-default'
+  config.boolean_label_class      = nil
+  config.input_class              = 'form-control'
 
-  config.wrappers :default, class: :input,
-    hint_class: :field_with_hint, error_class: :field_with_errors do |b|
-    
+  config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
     b.use :html5
- 
     b.use :placeholder
-    
     b.optional :readonly
+    b.use :label, class: 'control-label input-label'
 
-    ## Inputs
-    b.use :label_input
-    b.use :hint,  wrap_with: { tag: :span, class: :hint }
-    b.use :error, wrap_with: { tag: :span, class: :error }
+    b.use :input
+    b.use :full_error, wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,       wrap_with: { tag: 'p', class: 'help-block' }
   end
 
-  config.default_wrapper = :default
+  config.wrappers :general_form, tag: 'div', class: 'form-group mb-30', error_class: 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :readonly
+    b.use :label, class: 'control-label input-label'
 
-  config.boolean_style = :nested
-
-  config.button_class = 'btn'
-
-  config.error_notification_tag = :div
-
-  config.error_notification_class = 'error_notification'
-
-  config.label_text = lambda { |label, required, explicit_label| "#{label}" }
-
-  config.browser_validations = false
-
-  config.boolean_label_class = 'checkbox'
-
-  # Defines which i18n scope will be used in Simple Form.
-  # config.i18n_scope = 'simple_form'
+    b.use :input
+    b.use :full_error, wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,       wrap_with: { tag: 'p', class: 'help-block' }
+  end
+  
+  config.default_wrapper = :vertical_form
 end
