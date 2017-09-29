@@ -7,7 +7,6 @@ class AddOrderItem < Rectify::Command
   def call
     @order.save if @order.new_record?
     
-    authorize! :create, item
     @order.add_item(item)
 
     if @order.save

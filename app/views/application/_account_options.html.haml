@@ -4,9 +4,8 @@
   %li.divider{ role: 'separator' }
   = content_for :log_out_link
 
-- unless current_user.admin?
-  %li
-    = link_to t('application.orders'), users_orders_path, class: local_assigns[:link_class]
+%li
+  = link_to t('application.orders'), users_orders_path, class: local_assigns[:link_class]
 
 %li
   = link_to t('application.settings'), edit_user_registration_path, class: local_assigns[:link_class]

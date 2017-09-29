@@ -1,7 +1,9 @@
 %main.container.general-main-wrap
   .text-center
     %h3.general-login-title= t('application.log_in')
-    = render 'devise/shared/oauth_links'
-    %p.general-login-text= t('users.or')
+    - if resource_name == :user
+      = render 'devise/shared/oauth_links'
+      %p.general-login-text= t('users.or')
+
   = render 'form'
   = render "devise/shared/links"

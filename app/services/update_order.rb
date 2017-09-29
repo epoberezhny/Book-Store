@@ -6,7 +6,6 @@ class UpdateOrder < Rectify::Command
 
   def call
     @order.assign_attributes(order_params)
-    authorize! :update, :order_items
 
     if @order.save
       broadcast(:valid)
