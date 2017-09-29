@@ -1,4 +1,6 @@
-class SortBooks < SortingQuery
+class SortBooks < Rectify::Query
+  include SortingQuery
+  
   type :newest,     order: { created_at: :desc }
   type :popular,    order: { order_items_count: :desc }
   type :price,      order: { price: :asc }
