@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       resources :reviews, only: [:create]
     end
 
-    get 'cart', to: 'cart#index'
+    resource :cart, only: [:show]
 
     namespace :users do
       resources :orders, only: [:show] do
