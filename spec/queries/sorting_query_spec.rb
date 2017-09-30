@@ -1,5 +1,5 @@
 RSpec.describe 'SortingQuery' do
-  let(:query) { Class.new(SortingQuery) }
+  let(:query) { Class.new.include(SortingQuery) }
 
   describe '::type' do
     it 'adds type' do
