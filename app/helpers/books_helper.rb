@@ -4,7 +4,7 @@ module BooksHelper
   end
 
   def active_category
-    params[:category]&.humanize || 'All'
+    params[:category]&.humanize || t('categories.all')
   end
 
   def category_class(name)

@@ -3,7 +3,7 @@
 - content_for :additional_options, '', flush: true
 
 %li
-  = link_to 'All', books_path, class: local_assigns[:link_class]
+  = link_to t('categories.all'), books_path, class: local_assigns[:link_class]
 - categories.each do |category|
   %li
     = link_to category.name, books_path(category), class: local_assigns[:link_class]
