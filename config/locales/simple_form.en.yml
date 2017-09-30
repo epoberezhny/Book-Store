@@ -29,6 +29,7 @@ en:
       coupon:
         code: Your Coupon
       review:
+        title: Title
         body: Review
         score: Score
       credit_card:

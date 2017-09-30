@@ -29,6 +29,7 @@ ru:
       coupon:
         code: Ваш купон
       review:
+        title: Тема
         body: Отзыв
         score: Оценка
       credit_card:

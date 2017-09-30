@@ -8,6 +8,8 @@ ru:
   shipments: Доставка
   payment_info: Информация об оплате
   range: от %{min} до %{max} дней
+  categories:
+    all: 'All'
   sorting_types:
     newest: 'Сначала новые'
     popular: 'Сначала популярные'

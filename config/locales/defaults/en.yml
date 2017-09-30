@@ -8,6 +8,8 @@ en:
   shipments: Shipments
   payment_info: Payment Information
   range: '%{min} to %{max} days'
+  categories:
+    all: 'All'
   sorting_types:
     newest: 'Newest first'
     popular: 'Popular first'
