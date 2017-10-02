@@ -75,6 +75,7 @@ group :development do
   gem 'ruby-debug-ide'
   gem 'debase'
   gem 'figaro'
+  gem 'letter_opener'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

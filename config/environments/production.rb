@@ -56,7 +56,19 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "Book_Store_#{Rails.env}"
+
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'https://ep-bookstore.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 587,
+    user_name:            ENV['sendgrid_username'],
+    password:             ENV['sendgrid_password'],
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
+  
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
