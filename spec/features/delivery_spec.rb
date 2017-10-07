@@ -10,13 +10,13 @@ RSpec.feature 'Checkout/Delivery' do
   end
     
   scenario 'logged in user can choose shipping method', js: true do
-    expect(find('#delivery').text).to eq('5.00 €')
-    expect(find('#total').text).to eq('5.00 €')
+    expect(find('#delivery').text).to eq('50.00 €')
+    expect(find('#total').text).to eq('50.00 €')
 
-    find('span', text: 'Method2').trigger('click')
+    find('span', text: 'Method13').trigger('click')
 
-    expect(find('#delivery').text).to eq('10.00 €')
-    expect(find('#total').text).to eq('10.00 €')
+    expect(find('#delivery').text).to eq('55.00 €')
+    expect(find('#total').text).to eq('55.00 €')
 
     click_on('Save and Continue')
 
