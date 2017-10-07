@@ -17,6 +17,12 @@ FactoryGirl.define do
 
         factory :order_with_shipping_method do
           shipping_method
+
+          factory :order_with_credit_card do
+            after(:create) do |order|
+              create(:credit_card, order: order)
+            end
+          end
         end
       end
     end
