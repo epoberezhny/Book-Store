@@ -3,7 +3,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    super { render 'quick_new' and return if params[:type] == 'quick' }
+    super { render :quick_new and return if params[:type] == 'quick' }
   end
 
   # POST /resource
@@ -11,7 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super do |resource|
       if params[:quick_sign_up] == 'true'
         resource.skip_password_validations!
-        resource.save
+        resource_saved = resource.save
+        render :quick_new and return unless resource_saved
       end
     end
   end
