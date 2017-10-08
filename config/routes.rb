@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
 
     resource :order, only: [:update] do
-      post 'apply_coupon'
+      post      :apply_coupon
       resources :items, only: [:create, :destroy], controller: :order_items
     end
 
