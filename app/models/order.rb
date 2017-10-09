@@ -54,6 +54,7 @@ class Order < ApplicationRecord
 
   def merge!(other)
     other.items.each { |item| add_item(item) }
+    self.coupon = other.coupon if other.coupon.present?
     save
     other.items.reload
     other.destroy

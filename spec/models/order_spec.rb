@@ -100,6 +100,19 @@ RSpec.describe Order, type: :model do
         expect(order.items.where(book: books.second).first.quantity).to eq(5)
         expect(order.items.where(book: books.third).first.quantity).to  eq(4)
       end
+
+      it 'saves coupon from other order' do
+        coupon = create(:coupon)
+
+        order       = create(:order)
+        other_order = create(:order, coupon: coupon)
+
+        expect(order).to receive(:save).and_call_original
+
+        order.merge!(other_order)
+
+        expect(order.coupon).to eq(coupon)
+      end
     end
   end
 end
