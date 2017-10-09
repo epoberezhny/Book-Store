@@ -22,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if params[:destroying_confirmation]
       super
     else
-      redirect_to edit_user_registration_path, alert: 'Please confirm destroying!'
+      redirect_to edit_user_registration_path, alert: t('.confirm_destroying')
     end
   end
 

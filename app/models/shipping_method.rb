@@ -9,12 +9,13 @@ class ShippingMethod < ApplicationRecord
     uniqueness: { scope: :country_id }
   validates :min_days, :max_days,
     numericality: { only_integer: true, greater_than: 0 }
+
   validate :right_days_range
 
   private
 
   def right_days_range
     return if errors.present? || min_days < max_days
-    errors[:base] << 'Invalid range'
+    errors[:base] << I18n.t('validators.invalid_range')
   end
 end

@@ -24,3 +24,7 @@ en:
       denied: *denied
     update:
       denied: *denied
+  users:
+    registrations:
+      destroy:
+        confirm_destroying: Please confirm destroying!
