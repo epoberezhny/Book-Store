@@ -19,11 +19,6 @@ gem 'sass-rails', '~> 5.0'
 gem "haml-rails", "~> 1.0"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use CoffeeScript for .coffee assets and views
-# gem 'coffee-rails', '~> 4.2'
 
 gem 'devise'
 gem 'omniauth-facebook'
@@ -49,9 +44,6 @@ gem 'rails_admin_aasm'
 gem 'simple_form'
 
 gem 'ffaker'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   gem 'rspec-rails'
