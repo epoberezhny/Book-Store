@@ -5,7 +5,7 @@ RSpec.describe CreditCard, type: :model do
     end
       
     context 'number' do
-      it { is_expected.to validate_length_of(:number).is_equal_to(16) }
+      it { is_expected.to validate_length_of(:number).is_at_least(16).is_at_most(20) }
       it { is_expected.to allow_value('1111222233334444').for(:number) }
       it { is_expected.not_to allow_value('a111222233334444').for(:number) }
       it { is_expected.not_to allow_value('111-222233334444').for(:number) }
@@ -37,6 +37,32 @@ RSpec.describe CreditCard, type: :model do
       it { is_expected.to allow_value('12/99').for(:month_year) }
       it { is_expected.not_to allow_value('1/22').for(:month_year) }
       it { is_expected.not_to allow_value('13/99').for(:month_year) }
+      it { is_expected.not_to allow_value('13/173').for(:month_year) }
+
+      it do
+        value = Time.current.strftime('%m/%y')
+        is_expected.not_to allow_value(value).for(:month_year)
+      end
+
+      it do
+        value = Time.current.advance(months: 1).strftime('%m/%y')
+        is_expected.to allow_value(value).for(:month_year)
+      end
+
+      it do
+        value = Time.current.advance(years: 1).strftime('%m/%y')
+        is_expected.to allow_value(value).for(:month_year)
+      end
+
+      it do
+        value = Time.current.advance(months: -1).strftime('%m/%y')
+        is_expected.not_to allow_value(value).for(:month_year)
+      end
+
+      it do
+        value = Time.current.advance(years: -1).strftime('%m/%y')
+        is_expected.not_to allow_value(value).for(:month_year)
+      end
     end
   end
 

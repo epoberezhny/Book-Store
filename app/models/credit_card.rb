@@ -6,7 +6,7 @@ class CreditCard < ApplicationRecord
   validates *FIELDS.without(:id),
     presence: true
   validates :number,
-    length: { is: 16 },
+    length: { in: 16..20 },
     format: { with: /\A\d+\z/ }
   validates :cvv,
     length: { in: 3..4 },
@@ -16,4 +16,16 @@ class CreditCard < ApplicationRecord
     format: { with: /\A[ a-zA-Z]+\z/ }
   validates :month_year,
     format: { with: /\A(?:0[1-9]|1[0-2])\/\d{2}\z/ }
+
+  validate :check_date
+
+  private
+
+  def check_date
+    return if errors[:month_year].present?
+    month, year = month_year.split('/').map!(&:to_i)
+    year  += 2_000
+    return if (Date.current - Date.new(year, month)) < 0
+    errors[:month_year] << I18n.t('validators.expired_card')
+  end
 end
