@@ -31,7 +31,9 @@ class CheckoutController < ApplicationController
   attr_writer :order
 
   def quickly_authenticate_user!
-    redirect_to new_user_registration_path(type: 'quick') unless user_signed_in?
+    return if user_signed_in?
+    store_location_for(:user, checkout_index_path)
+    redirect_to new_user_registration_path(type: :quick)
   end
 
   def check_access!
