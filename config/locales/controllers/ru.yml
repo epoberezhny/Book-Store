@@ -28,3 +28,5 @@ ru:
     registrations:
       destroy:
         confirm_destroying: Подтвердите удаление!
+      create:
+        wrong_email: Пожалуйста, введите действительный почтовый адрес!

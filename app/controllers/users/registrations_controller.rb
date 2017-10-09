@@ -11,8 +11,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super do |resource|
       if params[:quick_sign_up] == 'true'
         resource.skip_password_validations!
-        resource_saved = resource.save
-        render :quick_new and return unless resource_saved
+        unless resource.save
+          flash[:alert] = t('.wrong_email')
+          redirect_to new_user_registration_path(type: :quick) and return
+        end
       end
     end
   end

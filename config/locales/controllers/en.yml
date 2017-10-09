@@ -28,3 +28,5 @@ en:
     registrations:
       destroy:
         confirm_destroying: Please confirm destroying!
+      create:
+        wrong_email: Please enter a valid email!
