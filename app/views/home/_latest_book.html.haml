@@ -12,4 +12,4 @@
           = form_for :order_item, url: order_items_path do |form|
             = hidden_field_tag 'order_item[quantity]', 1
             = hidden_field_tag 'order_item[book_id]', book.id
-            = form.button t('home.buy_now'), class: "#{book.btn_class} btn"
+            = form.button t('home.buy_now'), class: "#{book.btn_class} btn", disabled: !book.in_stock?
