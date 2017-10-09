@@ -1,4 +1,4 @@
-= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'general-form' }, wrapper: :general_form do |f|
+= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { id: :login, class: 'general-form' }, wrapper: :general_form do |f|
 
   = f.input :email, autofocus: true
 
