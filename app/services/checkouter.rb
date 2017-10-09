@@ -12,7 +12,7 @@ class Checkouter < Rectify::Command
       @order.assign_attributes( send("#{@step}_params") )
     end
 
-    broadcast(:ok, @order)
+    @order
   end
 
   private

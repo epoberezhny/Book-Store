@@ -18,17 +18,11 @@ class CheckoutController < ApplicationController
   end
 
   def update
-    Checkouter.call(@order, params, step) do
-      on(:ok) do |order|
-        self.order = order.decorate
-        render_wizard order
-      end
-    end
+    @order = Checkouter.call(@order, params, step).decorate
+    render_wizard @order.object
   end
 
   private
-
-  attr_writer :order
 
   def quickly_authenticate_user!
     return if user_signed_in?
