@@ -16,7 +16,7 @@ RailsAdmin.config do |config|
     # export
     bulk_delete
     show
-    edit
+    edit { except ['Review'] }
     delete
     show_in_app { except ['Order'] }
     state
