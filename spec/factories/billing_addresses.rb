@@ -5,7 +5,7 @@ FactoryGirl.define do
     city 'harkov'
     country
     address_line 'billing'
-    zip 4321
+    zip 54321
     phone '+380651112233'
   end
 end

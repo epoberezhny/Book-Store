@@ -5,7 +5,7 @@ FactoryGirl.define do
     city 'dnepr'
     country
     address_line 'shipping'
-    zip 1234
+    zip 12345
     phone '+380651112233'
   end
 end

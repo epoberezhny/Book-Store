@@ -7,10 +7,10 @@ class Address < ApplicationRecord
   validates *FIELDS.without(:id),
     presence: true
   validates :zip,
-    length: { maximum: 10 },
+    length: { in: 5..10 },
     format: { with: /\A[\d-]+\z/ }
   validates :phone,
-    length: { maximum: 15 },
+    length: { in: 10..15 },
     format: { with: /\A\+\d+\z/ }
   validates :first_name, :last_name, :city,
     length: { maximum: 50 },
