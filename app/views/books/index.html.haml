@@ -1,0 +1,19 @@
+%main.container
+  %h1.general-title-margin= t('books.catalog')
+  .hidden-xs.clearfix
+    .dropdowns.pull-right
+      .dropdown.width-240
+        = render partial: 'sort_list', layout: 'shared/dropdown'
+    = render 'categories'
+    
+  .dropdowns.mb-25.visible-xs
+    %p.lead.small.mb-10= t('books.filter_by_category')
+    .dropdown
+      = render partial: 'categories_list', layout: 'shared/dropdown'
+
+    %p.lead.small.mb-10= t('books.sort_by')
+    .dropdown
+      = render partial: 'sort_list', layout: 'shared/dropdown'
+
+  .mb-120
+    = render 'books_block'

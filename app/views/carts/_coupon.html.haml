@@ -1,0 +1,9 @@
+.col-sm-4
+  .input-group.general-input-group
+    = simple_form_for :coupon, url: apply_coupon_order_path, method: :post do |f|
+      = f.input :code, input_html: { class: 'mb-30' }
+
+      %div
+        = f.submit t('cart.apply_coupon'), class: 'btn btn-primary mb-15 mr-5'
+        %button.btn.btn-primary.mb-15.hidden-xs{ type: 'submit', form: 'big_form' }= t('cart.update_cart')
+        %button.btn.btn-primary.mb-15.visible-xs-inline-block{ type: 'submit', form: 'small_form' }= t('cart.update_cart')

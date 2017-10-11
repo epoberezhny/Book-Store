@@ -1,0 +1,21 @@
+.general-cart-item.divider-lg-bottom{ class: ('mb-30' if method_iteration.last?) }
+  %table.table.method
+    %tr
+      %td.col-half
+        %span.in-grey-600= t('checkout.method')
+      %td.col-half
+        .form-group.radio.mt-0.mb-0
+          %label.radio-label
+            = radio_button_tag 'order[shipping_method_id]', method.id, false, class: 'radio-input', hidden: true, data: { price: method.price }
+            %span.radio-icon
+            %span.radio-text= method.name
+    %tr
+      %td
+        %span.in-grey-600= t('checkout.days')
+      %td
+        %span.font-16.fw-300= t('range', min: method.min_days, max: method.max_days)
+    %tr
+      %td
+        %span.in-grey-600= t('price')
+      %td
+        %span.font-16.in-gold-500.price= method.formatted_price

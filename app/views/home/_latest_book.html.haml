@@ -1,0 +1,15 @@
+.item{ class: ('active' if book_iteration.first?) }
+  .row
+    .col-sm-5
+      .general-img-wrap
+        = image_tag book.cover.url, class: 'img-shadow general-thumbnail-img'
+    .col-sm-7
+      .mb-60
+        %h1= book.title
+        %p.lead= book.more_short_description
+        %p.lead.small= book.joined_authors
+        .general-align
+          = form_for :order_item, url: order_items_path do |form|
+            = hidden_field_tag 'order_item[quantity]', 1
+            = hidden_field_tag 'order_item[book_id]', book.id
+            = form.button t('home.buy_now'), class: "#{book.btn_class} btn", disabled: !book.in_stock?

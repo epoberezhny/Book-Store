@@ -1,0 +1,34 @@
+= simple_form_for @order, url: wizard_path, method: :patch, html: { class: 'res-mb-100' } do |f|
+  .hidden-xs.hidden-sm
+    .row
+      .col-md-5
+        %h3.general-subtitle= t('billing_address')
+        %p.general-info-text= t('checkout.all_required')
+      .col-md-5.col-md-offset-1
+        %h3.general-subtitle= t('shipping_address')
+  .row
+    .col-md-5.mb-40
+      #billing_address
+        .visible-xs.visible-sm
+          %h3.general-subtitle= t('billing_address')
+          %p.general-info-text= t('checkout.all_required')
+        = f.simple_fields_for :billing_address, address_placeholder('billing') do |a_form|
+          = render 'shared/address_fields', form: a_form
+
+    .col-md-5.col-md-offset-1.mb-60
+      #shipping_address
+        .visible-xs.visible-sm
+          %h3.general-subtitle= t('shipping_address')
+        = f.simple_fields_for :shipping_address, address_placeholder('shipping') do |a_form|
+          = render 'shared/address_fields', form: a_form
+
+      .form-group.checkbox
+        %label.checkbox-label
+          = check_box_tag :use_billing_address, nil, nil, class: 'checkbox-input', hidden: true
+          %span.checkbox-icon
+            %i.fa.fa-check
+          %span.checkbox-text= t('checkout.use_billing_address')
+
+  = render 'shared/summary', class: 'general-text-align mb-60', order: @order
+
+  = f.button :submit, t('checkout.save_and_continue'), class: 'center-block mb-20'

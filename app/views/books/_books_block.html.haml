@@ -1,0 +1,6 @@
+- @books.in_groups_of(4, false) do |group|
+  .row
+    = render group
+
+#view-more.text-center.mt-20
+  = link_to_next_page @books.object, t('books.view_more'), class: 'btn btn-primary', remote: true, data: { 'disable-with' => t('books.loading') }

@@ -1,0 +1,8 @@
+- content_for :active, active_category, flush: true
+
+%li
+  = link_to t('categories.all'), books_path(sort_by: params[:sort_by])
+
+- categories.each do |category|
+  %li
+    = link_to category.name, books_path(category, sort_by: params[:sort_by])

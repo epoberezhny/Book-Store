@@ -1,0 +1,73 @@
+%main.container
+  = link_to params[:return_path] || books_path, class: 'general-back-link' do
+    %i.fa.fa-long-arrow-left.mr-15
+    = t('book.back')
+
+  .row
+    .col-sm-6
+      .product-gallery
+        .mb-20
+          = image_tag @book.cover_url, class: 'img-responsive'
+        .images.clearfix
+          - @book.additional_images.each do |image|
+            = link_to '#', class: 'img-link' do
+              = image_tag image.url
+
+    .col-sm-6
+      %h1.mt-res-0= @book.title
+      %p.lead.small= @book.joined_authors
+
+      - if @book.in_stock?
+        = form_for :order_item, url: order_items_path do |form|
+          .row
+            .col-xs-12.col-md-4
+              %p.h1.in-gold-500.mt-10= @book.formatted_price
+            .col-xs-5.col-md-3
+              .input-group.general-position{ data: { role: 'counter', default: '1', min: '1', max: @book.quantity } }
+                %a.input-link{ href: '#', 'data-value' => 'prev' }
+                  %i.fa.fa-minus.line-height-40
+                = form.text_field :quantity, class: 'form-control quantity-input'
+                %a.input-link{ href: '#', 'data-value' => 'next' }
+                  %i.fa.fa-plus.line-height-40
+            .col-xs-7.col-md-5
+              = hidden_field_tag 'order_item[book_id]', @book.id
+              = form.submit t('book.add_to_cart'), class: 'btn btn-default pull-right general-position'
+      - else
+        .row
+          .col-xs-6.col-md-4
+            %p.h1.in-gold-500.mt-10= @book.formatted_price
+          .col-xs-6.col-md-8
+            %button.btn.disabled.pull-right.general-position Out of Stock
+
+      .general-info-wrap.divider-lg
+        %p= t('book.description')
+        - if @book.has_long_description?
+          %p.lead.small.line-height-2.desc
+            = @book.short_description
+            %a#read-more.in-gold-500.ml-10{ href: '#' } Read More
+          %p.lead.small.line-height-2.desc{ style: 'display: none;' }
+            = @book.description
+        - else
+          %p.lead.small.line-height-2= @book.description
+
+      .general-info-wrap.divider-lg
+        .clearfix
+          %p.pull-left= t('book.year')
+          %p.lead.small.pull-right= @book.year
+
+      .general-info-wrap.divider-lg
+        .clearfix
+          %p.pull-left= t('book.dimensions')
+          %p.lead.small.pull-right= @book.formatted_dimensions
+
+      .general-info-wrap.divider-lg
+        .clearfix
+          %p.pull-left= t('book.materials')
+          %p.lead.small.pull-right= @book.joined_materials
+  .mb-80
+    - if can? :create, :review
+      = render 'books/review_form'
+
+    %h3.in-gold-500.mb-25= t('book.reviews', count: @book.reviews.size)
+
+    = render partial: 'books/review', collection: @book.reviews.sort_by(&:created_at)

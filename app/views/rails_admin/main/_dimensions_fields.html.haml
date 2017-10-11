@@ -1,0 +1,12 @@
+= form.fields_for :dimensions do |d|
+  .form-group
+    = d.label :h, 'H:', class: 'control-label col-sm-1'
+    = d.text_field :h, value: (form.object.dimensions['h'] if form.object.dimensions), class: 'form-control'
+
+  .form-group
+    = d.label :w, 'W:', class: 'control-label col-sm-1'
+    = d.text_field :w, value: (form.object.dimensions['w'] if form.object.dimensions), class: 'form-control'
+
+  .form-group
+    = d.label :d, 'D:', class: 'control-label col-sm-1'
+    = d.text_field :d, value: (form.object.dimensions['d'] if form.object.dimensions), class: 'form-control'

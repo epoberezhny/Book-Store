@@ -1,0 +1,14 @@
+.hidden-xs.mb-res-50
+  %table.table.table-hover
+    %thead
+      %tr
+        %th
+          %span.in-grey-600= t('orders.number')
+        %th
+          %span.in-grey-600= t('orders.completed_at')
+        %th
+          %span.in-grey-600= t('orders.status')
+        %th
+          %span.in-grey-600= t('orders.total')
+    %tbody
+      = render @orders

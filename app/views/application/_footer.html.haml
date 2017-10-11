@@ -1,0 +1,19 @@
+%footer.navbar-inverse
+  .container
+    .row
+      .col-sm-9
+        %ul.list-inline.general-align.mb-25
+          %li
+            = link_to t('application.home'), root_path, class: 'nav-link'
+          %li
+            = link_to t('application.shop'), books_path, class: 'nav-link'
+          - if user_signed_in?
+            = render 'account_options', link_class: 'nav-link'
+      .col-sm-3
+        %p.general-nav-mail support@bookstore.com
+        %p.general-nav-number (555)-555-5555
+        %ul.list-inline.general-align
+          - ['facebook', 'twitter', 'google-plus', 'instagram'].each do |social|
+            %li
+              %a.nav-link{ href: '#' }
+                %i.fa{ class: "fa-#{social}", 'aria-hidden' => 'true' }

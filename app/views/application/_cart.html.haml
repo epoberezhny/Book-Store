@@ -1,0 +1,4 @@
+= link_to cart_path, class: "#{xs}-xs shop-link pull-right" do
+  %span.shop-icon{ class: ('empty' if current_order.total_quantity.zero?) }
+    - unless current_order.total_quantity.zero?
+      %span.shop-quantity= current_order.total_quantity

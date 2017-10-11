@@ -1,0 +1,10 @@
+%main.container
+  = render 'latest_books'
+.container
+  .jumbotron.text-center.mb-0
+    %h2.h1= t('home.welcome')
+    .mb-res-50
+      %p= t('home.text')
+    = link_to t('home.get_started'), books_path, class: 'btn btn-default'
+  .mb-35
+    = render 'best_sellers'

@@ -1,0 +1,23 @@
+.general-cart-item{ class: ('divider-lg-bottom pt-0' unless order_iteration.last?) }
+  %table.table
+    %tr
+      %td.col-half
+        %span.in-grey-600= t('orders.number')
+      %td.col-half
+        = link_to users_order_path(order) do
+          %span.general-order-number= order.number
+    %tr
+      %td
+        %span.in-grey-600= t('orders.completed_at')
+      %td
+        %span.in-grey-900.font-16.fw-300= order.formatted_completed_at
+    %tr
+      %td
+        %span.in-grey-600= t('orders.status')
+      %td
+        %span.font-16.fw-300.text-alert= order.status
+    %tr
+      %td
+        %span.in-grey-600= t('orders.total')
+      %td
+        %strong.font-16= order.formatted_total

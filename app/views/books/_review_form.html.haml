@@ -1,0 +1,16 @@
+%h3= t('book.write_a_review')
+
+= simple_form_for [@book, @review] , html: { class: 'mb-20' } do |f|
+  .form-group
+    = f.label :score, class: 'control-label input-label'
+    .scores
+      - 5.downto(1).each do |score|
+        = f.radio_button :score, score, hidden: true
+        = f.label :score, value: score, class: 'mr-5' do
+          %i.fa.fa-star
+
+  = f.input :title
+
+  = f.input :body
+
+  = f.button :submit, t('book.post')

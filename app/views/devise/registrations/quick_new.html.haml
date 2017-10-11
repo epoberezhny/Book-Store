@@ -1,0 +1,28 @@
+.container.general-main-wrap
+  .row
+    .col-sm-6
+      .text-center
+        %h3.in-gold-500= t('users.returning_customer')
+        = render 'devise/shared/oauth_links'
+        %p.general-login-text= t('users.or')
+      .general-form
+        %h3.grey-600= t('users.with_password')
+      = render 'devise/sessions/form'
+
+    .col-sm-6
+      .text-center
+        %h3.in-gold-500.mb-25= t('users.new_customer')
+        = render 'devise/shared/oauth_links'
+        %p.general-login-text= t('users.or')
+      .general-form
+        %h3.grey-600= t('users.quick')
+        %p.general-login-text= t('users.later')
+
+      = simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: 'general-form' }, wrapper: :general_form do |f|
+
+        = f.input :email, autofocus: true
+
+        = hidden_field_tag :quick_sign_up, true
+
+        .text-center
+          = f.button :submit, t('users.continue'), class: 'mb-20'

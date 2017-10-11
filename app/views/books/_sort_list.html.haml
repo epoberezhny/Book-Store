@@ -1,0 +1,5 @@
+- content_for :active, active_sorting, flush: true
+
+- SortBooks.types_and_titles.each do |type, title|
+  %li
+    = link_to title, books_path(category: params[:category], sort_by: type)

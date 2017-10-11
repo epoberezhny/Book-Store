@@ -1,0 +1,19 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= t('cart.title')
+  - if @order.items.blank?
+    .text-center= t('cart.empty')
+      
+  - else
+    .visible-xs
+      = form_for @order, url: 'order', method: :patch, html: { id: :small_form } do |f|
+        = f.fields_for :items, @items do |items_f|
+          = render 'item_xs', item: items_f.object, form: items_f
+
+    = render 'hidden_xs'    
+
+    .general-order-wrap
+      .row
+        = render 'coupon'
+        = render 'summary'
+
+    = button_to t('cart.checkout'), checkout_index_path, method: :get, class: 'btn btn-default mb-20 center-block'

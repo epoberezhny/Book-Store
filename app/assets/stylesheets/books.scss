@@ -1,0 +1,53 @@
+.shop-icon.empty {
+  background-color: transparent;
+}
+
+.form-control[readonly] {
+  background-color: initial;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.img-responsive {
+  margin: auto
+}
+
+.general-thumb-link-wrap > form {
+  display: inline-block;
+}
+
+.thumb-hover-link {
+  padding: 0;
+  
+  background-color: inherit;
+}
+
+.scores {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.scores > label { 
+  color: #c3c3c3;
+  font-size: 17px;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.scores > input:checked ~ label, /* show gold star when clicked */
+.scores:not(:checked) > label:hover, /* hover current star */
+.scores:not(:checked) > label:hover ~ label { /* hover previous stars in list */
+  color: #c59c71;
+} 
+
+.scores > input:checked + label:hover, /* hover current star when changing scores */
+.scores > input:checked ~ label:hover,
+.scores > label:hover ~ input:checked ~ label, /* lighten current selection */
+.scores > input:checked ~ label:hover ~ label {
+  color: lighten(#c59c71, 20%);
+}

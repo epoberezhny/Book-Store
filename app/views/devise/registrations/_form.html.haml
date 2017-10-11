@@ -1,0 +1,10 @@
+= simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: 'general-form' }, wrapper: :general_form do |f|
+
+  = f.input :email, autofocus: true
+
+  = f.input :password, input_html: { autocomplete: 'off' }
+
+  = f.input :password_confirmation, input_html: { autocomplete: 'off' }
+
+  .text-center
+    = f.button :submit, t('application.sign_up'), class: 'mb-20'

@@ -1,0 +1,11 @@
+%ul.steps.list-inline
+  - wizard_steps.each_with_index do |wizard_step, index|
+    %li.step{ class: ('active' if wizard_step == step || past_step?(wizard_step)) }
+      %span.step-number
+        - if past_step?(wizard_step)
+          %i.fa.fa-check.step-icon
+        - else
+          = index + 1
+      %span.step-text.hidden-xs= t(wizard_step, scope: :checkout)
+    - if index != wizard_steps.length - 1
+      %li.step-divider

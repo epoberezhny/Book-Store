@@ -1,0 +1,13 @@
+%tr
+  %td
+    .general-img-wrap-table
+      = image_tag item.book.cover.thumb.url, class: 'cart-img-shadow pull-left'
+  %td
+    %p.title= item.book.title
+    %p.in-grey-600.fw-300= item.book.more_short_description
+  %td
+    %span.font-16.in-gold-500= item.book.formatted_price
+  %td
+    %span.ml-30= item.quantity
+  %td
+    %span.font-16.in-gold-500= item.formatted_total

@@ -1,0 +1,31 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= @order.number
+  .row.mb-20
+    - [:shipping_address, :billing_address].each do |type|
+      .col-sm-3
+        %h3.general-subtitle.mt-0= t(type)
+        = render 'shared/address', address: @order.send(type)
+
+    .col-sm-3
+      - delivery = @order.shipping_method
+      %h3.general-subtitle.mt-0= t('shipments')
+      %p.general-address
+        = delivery.name
+        %br
+        = delivery.days
+        %br
+        = delivery.formatted_price
+
+    .col-sm-3
+      - payment = @order.credit_card
+      %h3.general-subtitle.mt-0= t('payment_info')
+      %p.general-address
+        = payment.formatted_number
+        %br
+        = payment.month_year
+
+  = render 'shared/items'
+
+  = render 'shared/summary', class: 'text-center general-text-right',
+                             table_class: 'general-summary-table-right general-text-right',
+                             order: @order

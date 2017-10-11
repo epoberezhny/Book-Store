@@ -1,0 +1,38 @@
+.row.mb-20
+  - [:shipping_address, :billing_address].each do |type|
+    .col-sm-3
+      %h3.general-subtitle= t(type)
+      = render 'shared/address', address: @order.send(type) do
+        = link_to wizard_path(:address) do
+          %span.general-edit= t('checkout.edit')
+
+  .col-sm-3
+    - delivery = @order.shipping_method
+    %h3.general-subtitle= t('shipments')
+    %p.general-address
+      = delivery.name
+      = link_to wizard_path(:delivery) do
+        %span.general-edit= t('checkout.edit')
+      %br
+      = delivery.days
+      %br
+      = delivery.formatted_price
+
+  .col-sm-3
+    - payment = @order.credit_card
+    %h3.general-subtitle= t('payment_info')
+    %p.general-address
+      = payment.formatted_number
+      = link_to wizard_path(:payment) do
+        %span.general-edit= t('checkout.edit')
+      %br
+      = payment.month_year
+
+= render 'shared/items'
+
+= render 'shared/summary', class: 'text-center general-text-right',
+                           table_class: 'general-summary-table-right general-text-right',
+                           order: @order
+
+.text-center
+  = button_to t('checkout.place_order'), wizard_path, method: :patch, class: 'btn btn-default mb-20'

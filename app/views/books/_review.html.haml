@@ -1,0 +1,20 @@
+.general-message-wrap.divider-lg
+  .clearfix
+    - if review&.user.avatar
+      = image_tag review.user.avatar, class: 'img-circle logo-size inlide-block pull-left'
+    - else
+      %span.img-circle.logo-size.inlide-block.pull-left.logo-empty= "#{review.user.first_name&.first} #{review.user.last_name&.first}"
+    
+    .ml-70
+      %div
+        .general-message-date.hidden-xs= review.formatted_date
+        .max-240
+          - if review.verified?
+            .general-message-verified Verified Reviewer
+          .general-message-name= "#{review.user.first_name} #{review.user.last_name}"
+
+      .mb-15
+        - (1..5).each do |index|
+          %i.fa.fa-star.rate-star{ class: ('rate-empty' if index > review.score) }
+          
+      %p= review.body

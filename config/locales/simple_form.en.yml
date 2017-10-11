@@ -1,0 +1,51 @@
+en:
+  address: &address
+    first_name: First Name
+    last_name: Last Name
+    address_line: Address Line
+    city: City
+    zip: Zip
+    country: Country
+    phone: Phone
+  simple_form:
+    credit_card: &credit_card
+      number: Card Number
+      name_on_card: Name on Card
+      month_year: MM / YY
+    user: &user
+      email: Enter Email
+      password: Password
+      password_confirmation: Confirm Password
+    'yes': 'Yes'
+    'no': 'No'
+    required:
+      text: required
+      mark: '*'
+    error_notification:
+      default_message: 'Please review the problems below:'
+    labels:
+      defaults:
+        <<: *address
+      coupon:
+        code: Your Coupon
+      review:
+        title: Title
+        body: Review
+        score: Score
+      credit_card:
+        <<: *credit_card
+      user:
+        <<: *user
+    placeholders:
+      defaults:
+        <<: *address
+        phone: Example +38 063 111 22 22
+      coupon:
+        code: Enter Your Coupon Code
+      credit_card:
+        <<: *credit_card
+      user:
+        <<: *user
+    prompts:
+      defaults:
+        country: Select a country

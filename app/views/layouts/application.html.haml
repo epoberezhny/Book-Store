@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{charset: 'UTF-8'}
+    %meta{name: 'viewport', content: 'width=device-width'}
+    = csrf_meta_tags
+    %title Bookstore
+    %link{href: 'https://fonts.googleapis.com/css?family=Open+Sans', rel: 'stylesheet'}
+    = stylesheet_link_tag 'application', media: 'all'
+  %body
+    = render 'header'
+    = render 'flashes'
+    = content_for?(:checkout) ? yield(:checkout) : yield
+    = render 'footer'
+    = javascript_include_tag 'application'

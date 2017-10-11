@@ -1,0 +1,14 @@
+#slider.carousel.slide{ 'data-ride' => 'carousel' }
+  %ol.carousel-indicators
+    = render partial: 'carousel_indicator', collection: @latest_books, as: :book
+
+  .carousel-inner{role: 'listbox'}
+    = render partial: 'latest_book', collection: @latest_books, as: :book
+
+  %a.left.carousel-control{ href: '#slider', role: 'button', 'data-slide' => 'prev' }
+    %span.icon-prev{ 'aria-hidden' => 'true' }
+    %span.sr-only Previous
+
+  %a.right.carousel-control{ href: '#slider', role: 'button', 'data-slide' => 'next' }
+    %span.icon-next{ 'aria-hidden' => 'true' }
+    %span.sr-only Next

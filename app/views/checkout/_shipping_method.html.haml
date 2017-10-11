@@ -1,0 +1,11 @@
+%tr.method
+  %td
+    .form-group.radio.mt-0.mb-0
+      %label.radio-label
+        = radio_button_tag 'order[shipping_method_id]', method.id, method_iteration.first?, class: 'radio-input', hidden: true, data: { price: method.price }
+        %span.radio-icon
+        %span.radio-text= method.name
+  %td
+    %span= t('range', min: method.min_days, max: method.max_days)
+  %td
+    %span.font-16.in-gold-500.price= method.formatted_price

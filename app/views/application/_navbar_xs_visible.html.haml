@@ -1,0 +1,15 @@
+.visible-xs
+  %ul.nav.navbar-nav
+    %li
+      = link_to 'en', url_for(locale: :en), class: 'language-link'
+      = '/'
+      = link_to 'ru', url_for(locale: :ru), class: 'language-link'
+    %li
+      = link_to t('application.home'), root_path
+    = render partial: 'shop_options', layout: 'collapse', locals: { id: 'shop', link_class: 'collapse-link' }
+
+    - if user_signed_in?
+      = render partial: 'account_options', layout: 'collapse', locals: { id: 'account', link_class: 'collapse-link' }
+      = content_for :log_out_link
+    - else
+      = content_for :auth_links

@@ -1,0 +1,60 @@
+ru:
+  address: &address
+    first_name: Имя
+    last_name: Фамилия
+    address_line: Адрес
+    city: Город
+    zip: Индекс
+    country: Страна
+    phone: Телефон
+  simple_form:
+    credit_card: &credit_card
+      number: Номер
+      name_on_card: Имя на карте
+      month_year: ММ / ГГ
+    user: &user
+      email: Введите адрес почты
+      password: Пароль
+      password_confirmation: Подтвердите пароль
+    'yes': Да
+    'no': Нет
+    required:
+      text: обязательное поле
+      mark: '*'
+    error_notification:
+      default_message: 'Please review the problems below:'
+    labels:
+      defaults:
+        <<: *address
+      coupon:
+        code: Ваш купон
+      review:
+        title: Тема
+        body: Отзыв
+        score: Оценка
+      credit_card:
+        <<: *credit_card
+      user:
+        <<: *user
+    placeholders:
+      defaults:
+        <<: *address
+        phone: Пример +38 063 111 22 22
+      coupon:
+        code: Введите код вашего купона
+      credit_card:
+        <<: *credit_card
+      user:
+        <<: *user
+    prompts:
+      defaults:
+        country: Выберите страну
+  activerecord:
+    attributes:
+      billing_address:
+        <<: *address
+        country_id: Страна
+      shipping_address:
+        <<: *address
+        country_id: Страна
+        

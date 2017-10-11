@@ -1,0 +1,11 @@
+%ul.list-inline.pt-10.mb-25.mr-240
+  %li.mr-35
+    = link_to books_path(sort_by: params[:sort_by]), class: category_class(t('categories.all')) do
+      = t('categories.all')
+      %span.badge.general-badge= books_count
+
+  - categories.each do |category|
+    %li.mr-35
+      = link_to books_path(category, sort_by: params[:sort_by]), class: category_class(category.name) do
+        = category.name
+        %span.badge.general-badge= category.books.size
