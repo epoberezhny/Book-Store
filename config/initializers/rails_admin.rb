@@ -13,7 +13,6 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new { except ['Review', 'Order'] }
-    # export
     bulk_delete
     show
     edit { except ['Review'] }
@@ -24,11 +23,7 @@ RailsAdmin.config do |config|
 
   config.label_methods << :email
 
-  config.included_models = %w[Book Author Category User Review Order Material]
-
-  config.model 'User' do
-    visible false
-  end
+  config.included_models = %w[Book Author Category Review Order Material]
 
   config.model 'Material' do
     visible false
