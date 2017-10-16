@@ -12,18 +12,18 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new { except ['Review', 'Order'] }
+    new { except ['Review', 'ShoppingCart::Order'] }
     bulk_delete
     show
     edit { except ['Review'] }
     delete
-    show_in_app { except ['Order'] }
+    show_in_app { except ['ShoppingCart::Order'] }
     state
   end
 
   config.label_methods << :email
 
-  config.included_models = %w[Book Author Category Review Order Material]
+  config.included_models = %w[Book Author Category Review ShoppingCart::Order Material]
 
   config.model 'Material' do
     visible false
@@ -64,7 +64,7 @@ RailsAdmin.config do |config|
           states: { approved: 'label-success', rejected: 'label-danger' }
   end
 
-  config.model 'Order' do
+  config.model 'ShoppingCart::Order' do
     states = %i[in_queue in_delivery delivered canceled]
 
     list do
