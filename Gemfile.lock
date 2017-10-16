@@ -1,5 +1,7 @@
-PATH
-  remote: ../Cart Engine
+GIT
+  remote: https://github.com/epoberezhny/Cart-Engine.git
+  revision: 3287c0e5a58800b589a96c85c1113e43d2ee6a97
+  branch: dev
   specs:
     shopping_cart (0.1.0)
       aasm (~> 4.12, >= 4.12.2)
