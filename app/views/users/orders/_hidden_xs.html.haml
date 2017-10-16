@@ -11,4 +11,4 @@
         %th
           %span.in-grey-600= t('orders.total')
     %tbody
-      = render @orders
+      = render partial: 'order', collection: @orders, as: :order

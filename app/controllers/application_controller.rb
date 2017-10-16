@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
+  include ShoppingCart::Controllers::OrderHelpers
+  
   protect_from_forgery with: :exception
 
   before_action :set_locale
 
-  helper_method :categories, :current_order
+  helper_method :categories
 
   rescue_from CanCan::AccessDenied do
     redirect_back(fallback_location: root_path, alert: t('denied'))
@@ -13,10 +15,6 @@ class ApplicationController < ActionController::Base
 
   def categories
     @categories ||= Category.all
-  end
-
-  def current_order
-    @current_order ||= CurrentOrder.new(self).call
   end
 
   def set_locale

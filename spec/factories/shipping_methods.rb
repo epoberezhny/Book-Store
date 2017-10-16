@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :shipping_method do
+  factory :shipping_method, class: 'ShoppingCart::ShippingMethod' do
     name { generate(:delivery_name) }
     price 
     min_days 1

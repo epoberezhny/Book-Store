@@ -28,11 +28,11 @@ RSpec.feature 'Book' do
     scenario 'user can add to cart', js: true do
       visit book_path(id: @book.id)
 
-      click_on('Add to Cart')
+      click_on( I18n.t('book.add_to_cart') )
 
-      expect(Order.count).to eq(1)
-      expect(OrderItem.count).to eq(1)
-      expect(page).to have_content('The product was successfully added to cart.')
+      expect(ShoppingCart::Order.count).to eq(1)
+      expect(ShoppingCart::OrderItem.count).to eq(1)
+      expect(page).to have_content( I18n.t('shopping_cart.order_items.create.added') )
     end
 
     context 'write a review' do
@@ -43,13 +43,13 @@ RSpec.feature 'Book' do
         visit book_path(id: @book.id)
 
         within('#new_review') do
-          fill_in('Title', with: 'Title')
-          fill_in('Review', with: 'The best book ever!!!1111')
+          fill_in( I18n.t('simple_form.labels.review.title'), with: 'Title' )
+          fill_in( I18n.t('simple_form.labels.review.body'),  with: 'The best book ever!!!1111' )
           choose('review_score_3', allow_label_click: true)
-          click_on('Post')
+          click_on( I18n.t('book.post') )
         end
 
-        expect(page).to have_content('Reviews (0)')
+        expect(page).to have_content( I18n.t('book.reviews', count: 0) )
         expect(Review.count).to eq(1)
         expect(Review.first.attributes)
           .to include({ 'state' => 'unprocessed', 'score' => 3 })

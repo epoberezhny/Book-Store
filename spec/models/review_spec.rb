@@ -37,7 +37,7 @@ RSpec.describe Review, type: :model do
     context 'reviewer accomplished a purchase' do
       it 'sets verified to true' do
         order = create(:order, state: :delivered, user: user)
-        item  = create(:order_item, order: order, book: book)
+        item  = create(:order_item, order: order, product: book)
 
         expect(review).to receive(:verify_reviewer).and_call_original
         review.save

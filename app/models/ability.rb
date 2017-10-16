@@ -5,7 +5,7 @@ class Ability
     user ||= User.new
 
     if user.persisted?
-      can :read, Order, user_id: user.id
+      can :read, ShoppingCart::Order, user_id: user.id
       can :create, :review
     end
   end

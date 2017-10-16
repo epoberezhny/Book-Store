@@ -6,6 +6,8 @@ class CreateReviews < ActiveRecord::Migration[5.1]
       t.string :state
       t.integer :score
       t.text :body
+      t.string :title
+      t.boolean :verified, default: false, null: false
 
       t.timestamps
     end

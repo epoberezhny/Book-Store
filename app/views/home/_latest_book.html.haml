@@ -9,7 +9,8 @@
         %p.lead= book.more_short_description
         %p.lead.small= book.joined_authors
         .general-align
-          = form_for :order_item, url: order_items_path do |form|
+          = form_for :order_item, url: shopping_cart.order_items_path do |form|
             = hidden_field_tag 'order_item[quantity]', 1
-            = hidden_field_tag 'order_item[book_id]', book.id
+            = hidden_field_tag 'order_item[product_id]', book.id
+            = hidden_field_tag 'order_item[product_type]', book.object.class
             = form.button t('home.buy_now'), class: "#{book.btn_class} btn", disabled: !book.in_stock?

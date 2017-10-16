@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admins
   
+  mount ShoppingCart::Engine => '', as: 'shopping_cart'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :books, only: [:show] do
@@ -8,20 +9,11 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
 
-  resource :cart, only: [:show]
-
   namespace :users do
     resources :orders, only: [:show] do
       get '(status/:status)', action: :index, on: :collection, as: ''
     end
   end
-
-  resource :order, only: [:update] do
-    post      :apply_coupon
-    resources :items, only: [:create, :destroy], controller: :order_items
-  end
-
-  resources :checkout, only: [:index, :show, :update]
 
   devise_for :users,
               controllers: {

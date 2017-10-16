@@ -4,9 +4,9 @@
       .col-sm-9
         %ul.list-inline.general-align.mb-25
           %li
-            = link_to t('application.home'), root_path, class: 'nav-link'
+            = link_to t('application.home'), main_app.root_path, class: 'nav-link'
           %li
-            = link_to t('application.shop'), books_path, class: 'nav-link'
+            = link_to t('application.shop'), main_app.books_path, class: 'nav-link'
           - if user_signed_in?
             = render 'account_options', link_class: 'nav-link'
       .col-sm-3

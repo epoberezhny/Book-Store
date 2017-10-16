@@ -27,7 +27,7 @@ class Review < ApplicationRecord
   def verify_reviewer
     self.verified = user.orders.for_show.any? do |order|
       order.delivered? && order.items.any? do |item|
-        item.book == book
+        item.product == book
       end
     end
   end

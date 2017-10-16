@@ -1,29 +1,9 @@
 ru:
   denied: Доступ запрещён!
-  order_items:
-    create:
-      added: Товар успешно добавлен в корзину.
-      error: Товар не может быть добавлен в корзину.
-    destroy:
-      destroyed: Товар успешно удалён из корзины.
-  orders:
-    update:
-      valid: Корзина успешно обновлена.
-      invalid: Невозможно полностью обновить корзину. Некоторых товаров недостаточно на складе.
-    apply_coupon:
-      applied: Купон применён.
-      expired: Срок действия купона истёк.
-      'null': Такого купона не существует.
   reviews:
     create:
       valid: Благодарим за Ваш отзыв. Он будет опубликован после проверки администратором.
       invalid: Заполните все поля.
-  checkout:
-    denied: &denied Доступ запрещён. Пройдите все предыдущие шаги.
-    show:
-      denied: *denied
-    update:
-      denied: *denied
   users:
     registrations:
       destroy:

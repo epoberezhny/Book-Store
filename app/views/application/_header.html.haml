@@ -1,12 +1,12 @@
 - content_for :log_out_link do
   %li
-    = link_to t('application.log_out'), destroy_user_session_path, method: :delete
+    = link_to t('application.log_out'), destroy_session_path(:user), method: :delete
 
 - content_for :auth_links do
   %li
-    = link_to t('application.log_in'), new_user_session_path
+    = link_to t('application.log_in'), new_session_path(:user)
   %li
-    = link_to t('application.sign_up'), new_user_registration_path
+    = link_to t('application.sign_up'), new_registration_path(:user)
 
 %header.navbar.navbar-default
   .container
@@ -16,7 +16,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Bookstore', root_path, class: 'navbar-brand'
+      = link_to 'Bookstore', main_app.root_path, class: 'navbar-brand'
       = render 'cart', xs: 'visible'
     = render 'cart', xs: 'hidden'
     #navbar.navbar-collapse.collapse.pl-30{ 'aria-expanded' => 'false' }

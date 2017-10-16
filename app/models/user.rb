@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  has_one :billing_address,  as: :addressable, dependent: :destroy
-  has_one :shipping_address, as: :addressable, dependent: :destroy
+  has_one :billing_address,  as: :addressable, dependent: :destroy, class_name: 'ShoppingCart::BillingAddress'
+  has_one :shipping_address, as: :addressable, dependent: :destroy, class_name: 'ShoppingCart::ShippingAddress'
 
   has_many :reviews, dependent: :destroy
-  has_many :orders,  dependent: :nullify
+  has_many :orders,  dependent: :nullify, class_name: 'ShoppingCart::Order'
 
   validates_with PasswordValidator, if: :password_required?
 

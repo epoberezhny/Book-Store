@@ -1,4 +1,4 @@
-class Book < ApplicationRecord
+class Book < ShoppingCart::Product
   mount_uploader  :cover, CoverUploader
   mount_uploaders :additional_images, AdditionalImagesUploader
 

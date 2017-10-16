@@ -3,7 +3,7 @@ RSpec.feature 'Checkout/Payment' do
   let(:user)    { create(:user) }
 
   background do
-    allow_any_instance_of(CheckoutController).to receive(:current_order) { order }
+    allow_any_instance_of(ShoppingCart::CheckoutController).to receive(:current_order) { order }
     sign_in(user)
     visit 'checkout/payment'
   end
@@ -16,8 +16,8 @@ RSpec.feature 'Checkout/Payment' do
 
     click_on('Save and Continue')
 
-    expect(CreditCard.count).to eq(1)
-    expect(Order.first.credit_card).not_to be_blank
+    expect(ShoppingCart::CreditCard.count).to eq(1)
+    expect(ShoppingCart::Order.first.credit_card).not_to be_blank
     expect(page).to have_current_path('/checkout/confirm')
   end
 end

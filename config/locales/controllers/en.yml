@@ -1,29 +1,9 @@
 en:
   denied: Access denied!
-  order_items:
-    create:
-      added: The product was successfully added to cart.
-      error: It is not enough goods in stock.
-    destroy:
-      destroyed: The product was successfully deleted from cart.
-  orders:
-    update:
-      valid: Your cart was successfully updated.
-      invalid: It is impossible to completely update the cart. Some goods are not enough in stock.
-    apply_coupon:
-      applied: Coupon is applied.
-      expired: Coupon has expired.
-      'null': Coupon doesn't exist.
   reviews:
     create:
       valid: Thanks for Review. It will be published as soon as Admin will approve it.
       invalid: Fill in all the fields.
-  checkout:
-    denied: &denied Access denied. Finish all previous steps.
-    show:
-      denied: *denied
-    update:
-      denied: *denied
   users:
     registrations:
       destroy:

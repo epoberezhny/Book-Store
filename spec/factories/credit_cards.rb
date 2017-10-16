@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :credit_card do
+  factory :credit_card, class: 'ShoppingCart::CreditCard' do
     cvv '123'
     number '1111222233334444'
     name_on_card 'Vasya Petya'

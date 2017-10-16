@@ -7,9 +7,10 @@
           = link_to book_path(book, return_path: return_path), class: 'thumb-hover-link' do
             %i.fa.fa-eye.thumb-icon{ 'aria-hidden' => 'true' }
             
-          = form_for :order_item, url: order_items_path do |form|
+          = form_for :order_item, url: shopping_cart.order_items_path do |form|
             = hidden_field_tag 'order_item[quantity]', 1
-            = hidden_field_tag 'order_item[book_id]', book.id
+            = hidden_field_tag 'order_item[product_id]', book.id
+            = hidden_field_tag 'order_item[product_type]', book.object.class
             = form.button class: 'thumb-hover-link' do
               %i.fa.fa-shopping-cart.thumb-icon{ 'aria-hidden' => 'true' }
 

@@ -10,27 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929195538) do
+ActiveRecord::Schema.define(version: 20171015125146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "addresses", force: :cascade do |t|
-    t.string "addressable_type"
-    t.bigint "addressable_id"
-    t.string "type"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "city"
-    t.bigint "country_id"
-    t.string "address_line"
-    t.string "zip"
-    t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
-    t.index ["country_id"], name: "index_addresses_on_country_id"
-  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -89,13 +72,50 @@ ActiveRecord::Schema.define(version: 20170929195538) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "countries", force: :cascade do |t|
+  create_table "materials", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "coupons", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.string "state"
+    t.integer "score"
+    t.text "body"
+    t.string "title"
+    t.boolean "verified", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "shopping_cart_addresses", force: :cascade do |t|
+    t.string "addressable_type"
+    t.bigint "addressable_id"
+    t.bigint "country_id"
+    t.string "type"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "city"
+    t.string "address_line"
+    t.string "zip"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["addressable_type", "addressable_id"], name: "addressable_index"
+    t.index ["country_id"], name: "index_shopping_cart_addresses_on_country_id"
+  end
+
+  create_table "shopping_cart_countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shopping_cart_coupons", force: :cascade do |t|
     t.string "code"
     t.integer "discount"
     t.date "expire"
@@ -103,7 +123,7 @@ ActiveRecord::Schema.define(version: 20170929195538) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "credit_cards", force: :cascade do |t|
+  create_table "shopping_cart_credit_cards", force: :cascade do |t|
     t.bigint "order_id"
     t.string "cvv"
     t.string "number"
@@ -111,27 +131,22 @@ ActiveRecord::Schema.define(version: 20170929195538) do
     t.string "month_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_credit_cards_on_order_id"
+    t.index ["order_id"], name: "index_shopping_cart_credit_cards_on_order_id"
   end
 
-  create_table "materials", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "order_items", force: :cascade do |t|
-    t.bigint "book_id"
+  create_table "shopping_cart_order_items", force: :cascade do |t|
     t.integer "quantity"
     t.decimal "price", precision: 10, scale: 2
+    t.string "product_type"
+    t.bigint "product_id"
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_order_items_on_book_id"
-    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["order_id"], name: "index_shopping_cart_order_items_on_order_id"
+    t.index ["product_type", "product_id"], name: "productable_index"
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "shopping_cart_orders", force: :cascade do |t|
     t.decimal "total", precision: 10, scale: 2
     t.decimal "items_subtotal", precision: 10, scale: 2
     t.string "state"
@@ -142,26 +157,12 @@ ActiveRecord::Schema.define(version: 20170929195538) do
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["coupon_id"], name: "index_orders_on_coupon_id"
-    t.index ["shipping_method_id"], name: "index_orders_on_shipping_method_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["coupon_id"], name: "index_shopping_cart_orders_on_coupon_id"
+    t.index ["shipping_method_id"], name: "index_shopping_cart_orders_on_shipping_method_id"
+    t.index ["user_id"], name: "index_shopping_cart_orders_on_user_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "book_id"
-    t.string "state"
-    t.integer "score"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "title"
-    t.boolean "verified", default: false, null: false
-    t.index ["book_id"], name: "index_reviews_on_book_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "shipping_methods", force: :cascade do |t|
+  create_table "shopping_cart_shipping_methods", force: :cascade do |t|
     t.string "name"
     t.decimal "price", precision: 10, scale: 2
     t.integer "min_days"
@@ -169,7 +170,7 @@ ActiveRecord::Schema.define(version: 20170929195538) do
     t.bigint "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["country_id"], name: "index_shipping_methods_on_country_id"
+    t.index ["country_id"], name: "index_shopping_cart_shipping_methods_on_country_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -194,15 +195,14 @@ ActiveRecord::Schema.define(version: 20170929195538) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "countries"
   add_foreign_key "books", "categories"
-  add_foreign_key "credit_cards", "orders"
-  add_foreign_key "order_items", "books"
-  add_foreign_key "order_items", "orders"
-  add_foreign_key "orders", "coupons"
-  add_foreign_key "orders", "shipping_methods"
-  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
-  add_foreign_key "shipping_methods", "countries"
+  add_foreign_key "shopping_cart_addresses", "shopping_cart_countries", column: "country_id"
+  add_foreign_key "shopping_cart_credit_cards", "shopping_cart_orders", column: "order_id"
+  add_foreign_key "shopping_cart_order_items", "shopping_cart_orders", column: "order_id"
+  add_foreign_key "shopping_cart_orders", "shopping_cart_coupons", column: "coupon_id"
+  add_foreign_key "shopping_cart_orders", "shopping_cart_shipping_methods", column: "shipping_method_id"
+  add_foreign_key "shopping_cart_orders", "users"
+  add_foreign_key "shopping_cart_shipping_methods", "shopping_cart_countries", column: "country_id"
 end

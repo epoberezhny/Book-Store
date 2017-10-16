@@ -18,7 +18,7 @@
       %p.lead.small= @book.joined_authors
 
       - if @book.in_stock?
-        = form_for :order_item, url: order_items_path do |form|
+        = form_for :order_item, url: shopping_cart.order_items_path do |form|
           .row
             .col-xs-12.col-md-4
               %p.h1.in-gold-500.mt-10= @book.formatted_price
@@ -30,7 +30,8 @@
                 %a.input-link{ href: '#', 'data-value' => 'next' }
                   %i.fa.fa-plus.line-height-40
             .col-xs-7.col-md-5
-              = hidden_field_tag 'order_item[book_id]', @book.id
+              = hidden_field_tag 'order_item[product_id]', @book.id
+              = hidden_field_tag 'order_item[product_type]', @book.object.class
               = form.submit t('book.add_to_cart'), class: 'btn btn-default pull-right general-position'
       - else
         .row

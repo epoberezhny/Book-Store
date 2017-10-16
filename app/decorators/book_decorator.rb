@@ -1,5 +1,5 @@
 class BookDecorator < ApplicationDecorator
-  extend PriceFormatter
+  extend ShoppingCart::Decorators::PriceFormatter
 
   decorates_association :authors
   decorates_association :reviews

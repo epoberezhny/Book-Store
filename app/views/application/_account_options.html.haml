@@ -5,7 +5,7 @@
   = content_for :log_out_link
 
 %li
-  = link_to t('application.orders'), users_orders_path, class: local_assigns[:link_class]
+  = link_to t('application.orders'), main_app.users_orders_path, class: local_assigns[:link_class]
 
 %li
-  = link_to t('application.settings'), edit_user_registration_path, class: local_assigns[:link_class]
+  = link_to t('application.settings'), edit_registration_path(:user), class: local_assigns[:link_class]

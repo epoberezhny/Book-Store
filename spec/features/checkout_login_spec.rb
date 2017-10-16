@@ -3,11 +3,11 @@ feature 'Checkout login' do
   let(:user)  { create(:user, email: 'aa@bb.cc', password: 'A1somepassword') }
 
   background do
-    allow_any_instance_of(CheckoutController).to receive(:current_order) { order }
+    allow_any_instance_of(ShoppingCart::CheckoutController).to receive(:current_order) { order }
   end
 
   scenario 'user redirected to checkout after login'do
-    visit(checkout_index_path)
+    visit(shopping_cart.checkout_index_path)
     
     expect(page).to have_current_path( new_user_registration_path(type: :quick) )
 

@@ -1,0 +1,22 @@
+%tr
+  %td
+    .general-img-wrap-table
+      = link_to main_app.book_path(item.product) do
+        = image_tag item.product.cover.thumb.url, class: 'cart-img-shadow pull-left'
+  %td
+    = link_to main_app.book_path(item.product) do
+      %p.title= item.product.title
+  %td
+    %span.font-16.in-gold-500= item.product.formatted_price
+  %td
+    .input-group{ data: { role: 'counter', default: item.quantity, min: '1', max: item.product.quantity } }
+      %a.input-link{ href: '#', 'data-value' => 'prev' }
+        %i.fa.fa-minus.line-height-40
+      = form.text_field :quantity, class: 'form-control quantity-input'
+      %a.input-link{ href: '#', 'data-value' => 'next' }
+        %i.fa.fa-plus.line-height-40
+  %td
+    %span.font-16.in-gold-500= item.formatted_total
+  %td
+    = link_to order_item_path(item), method: :delete, class: 'close general-cart-close', 'aria-label' => 'Close' do
+      %span{ 'aria-hidden' => 'true' } &times;

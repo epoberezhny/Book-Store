@@ -40,14 +40,14 @@ Category.find_each do |category|
   end
 end
 
-Country.find_or_create_by!(name: 'Ukraine') do |country|
+ShoppingCart::Country.find_or_create_by!(name: 'Ukraine') do |country|
   country.shipping_methods.build(name: 'Standard Shipping', price: 5.0, min_days: 5, max_days: 7)
   country.shipping_methods.build(name: 'Fast Shipping', price: 10.0, min_days: 1, max_days: 3)
 end
 
-Country.find_or_create_by!(name: 'USA') do |country|
+ShoppingCart::Country.find_or_create_by!(name: 'USA') do |country|
   country.shipping_methods.build(name: 'International Shipping', price: 20.0, min_days: 10, max_days: 15)
 end
 
-Coupon.create!(code: 'awesome_bookstore', expire: 6.months.after, discount: 25)
-Coupon.create!(code: 'coupon', expire: 6.months.before, discount: 25)
+ShoppingCart::Coupon.create!(code: 'awesome_bookstore', expire: 6.months.after, discount: 25)
+ShoppingCart::Coupon.create!(code: 'coupon', expire: 6.months.before, discount: 25)

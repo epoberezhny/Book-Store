@@ -5,7 +5,7 @@
       = '/'
       = link_to 'ru', url_for(locale: :ru), class: 'language-link'
     %li
-      = link_to t('application.home'), root_path
+      = link_to t('application.home'), main_app.root_path
     = render partial: 'shop_options', layout: 'application/dropdown'
 
     - if user_signed_in?

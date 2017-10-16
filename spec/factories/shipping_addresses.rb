@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :shipping_address do
+  factory :shipping_address, class: 'ShoppingCart::ShippingAddress' do
     first_name 'Mishs'
     last_name 'Mishev'
     city 'dnepr'
