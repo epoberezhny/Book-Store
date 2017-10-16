@@ -45,8 +45,7 @@ gem 'simple_form'
 
 gem 'ffaker', group: [:development, :test]
 
-# gem 'shopping_cart', github: 'epoberezhny/Cart-Engine', branch: 'dev'
-gem 'shopping_cart', path: '../Cart Engine'
+gem 'shopping_cart', github: 'epoberezhny/Cart-Engine', branch: 'dev'
 
 group :test do
   gem 'rspec-rails'
