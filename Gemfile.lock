@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/epoberezhny/Cart-Engine.git
-  revision: 9258b9ed5b766a9db6827b603d04df1e714084d9
+  revision: 319ee591b3b1696097d72071a9108d36e6382a47
   branch: dev
   specs:
     shopping_cart (0.1.0)
