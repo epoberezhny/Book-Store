@@ -9,7 +9,7 @@ class ApplyCoupon < Rectify::Command
 
     if coupon.blank?
       broadcast(:null)
-    elsif coupon&.expired?
+    elsif coupon.expired?
       broadcast(:expired)
     else
       @order.update(coupon: coupon)
