@@ -25,10 +25,6 @@ class Review < ApplicationRecord
   private
 
   def verify_reviewer
-    self.verified = user.orders.for_show.any? do |order|
-      order.delivered? && order.items.any? do |item|
-        item.book == book
-      end
-    end
+    self.verified = user.orders.delivered.joins(:items).where(order_items: { book_id: book.id }).exists?
   end
 end
