@@ -43,15 +43,15 @@ gem 'rails_admin_aasm'
 
 gem 'simple_form'
 
-gem 'ffaker'
+gem 'ffaker', group: [:development, :test]
 
-group :development, :test do
+group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
-  gem 'capybara'#, require: 'capybara/rspec'
-  gem 'poltergeist'#, require: 'capybara/poltergeist'
+  gem 'capybara'
+  gem 'poltergeist'
   gem 'spring-commands-rspec'
   gem 'wisper-rspec', require: false
 end
@@ -64,8 +64,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'ruby-debug-ide'
-  gem 'debase'
+  gem 'ruby-debug-ide', require: false
+  gem 'debase', require: false
   gem 'figaro'
   gem 'letter_opener'
 end
