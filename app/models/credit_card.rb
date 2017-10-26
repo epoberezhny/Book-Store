@@ -24,7 +24,7 @@ class CreditCard < ApplicationRecord
   def check_date
     return if errors[:month_year].present?
     month, year = month_year.split('/').map!(&:to_i)
-    year  += 2_000
+    year += 2_000
     return if (Date.current - Date.new(year, month)) < 0
     errors[:month_year] << I18n.t('validators.expired_card')
   end
