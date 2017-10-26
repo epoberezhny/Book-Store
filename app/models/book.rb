@@ -31,6 +31,6 @@ class Book < ApplicationRecord
 
   def prepare_dimensions
     return unless dimensions_changed?
-    dimensions.each { |dimension, value| dimensions[dimension] = value.to_f }
+    dimensions.transform_values!(&:to_f)
   end
 end
